@@ -679,7 +679,7 @@
         </p>
         <p class="text-navy/60 text-[13px] mb-5">We can't wait to meet you!</p>
 
-        <form name="free-class" method="POST" data-netlify="true" onsubmit="submitClaimForm(event)">
+        <form name="free-class" method="POST" data-netlify="true">
           <input type="hidden" name="form-name" value="free-class">
           <input type="hidden" name="tag" value="free-class">
           <input
@@ -726,7 +726,7 @@
           We'd love to hear from you. Which days and times would you like to attend a class?
         </p>
 
-        <form name="class-request" method="POST" data-netlify="true" onsubmit="submitRequestForm(event)">
+        <form name="class-request" method="POST" data-netlify="true">
           <input type="hidden" name="form-name" value="class-request">
           <textarea
             id="request-message"
@@ -764,25 +764,6 @@
       document.getElementById('claim-modal').classList.remove('open');
       document.body.style.overflow = '';
     }
-    function submitClaimForm(e) {
-      e.preventDefault();
-      const email = document.getElementById('claim-email').value;
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'form-name': 'free-class',
-          'tag': 'free-class',
-          'email': email
-        }).toString()
-      }).then(() => {
-        document.getElementById('claim-modal-form-view').classList.add('hidden');
-        document.getElementById('claim-modal-success-view').classList.remove('hidden');
-      }).catch(() => {
-        document.getElementById('claim-modal-form-view').classList.add('hidden');
-        document.getElementById('claim-modal-success-view').classList.remove('hidden');
-      });
-    }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeClaimModal(); closeRequestModal(); } });
 
     function openRequestModal() {
@@ -795,25 +776,6 @@
       document.getElementById('request-modal').classList.remove('open');
       document.body.style.overflow = '';
     }
-    function submitRequestForm(e) {
-      e.preventDefault();
-      const msg = document.getElementById('request-message').value;
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'form-name': 'class-request',
-          'message': msg
-        }).toString()
-      }).then(() => {
-        document.getElementById('request-modal-form-view').classList.add('hidden');
-        document.getElementById('request-modal-success-view').classList.remove('hidden');
-      }).catch(() => {
-        document.getElementById('request-modal-form-view').classList.add('hidden');
-        document.getElementById('request-modal-success-view').classList.remove('hidden');
-      });
-    }
-
     function toggleFaq(btn) {
       const item = btn.closest('.faq-item');
       item.classList.toggle('open');
