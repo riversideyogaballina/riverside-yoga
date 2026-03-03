@@ -767,9 +767,21 @@
     function submitClaimForm(e) {
       e.preventDefault();
       const email = document.getElementById('claim-email').value;
-      window.location.href = 'mailto:riversideyogaballina@gmail.com?subject=Free%20Class%20Claim&body=Hi%2C%20I%27d%20love%20to%20claim%20my%20free%20class!%0A%0AMy%20email%3A%20' + encodeURIComponent(email);
-      document.getElementById('claim-modal-form-view').classList.add('hidden');
-      document.getElementById('claim-modal-success-view').classList.remove('hidden');
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'free-class',
+          'tag': 'free-class',
+          'email': email
+        }).toString()
+      }).then(() => {
+        document.getElementById('claim-modal-form-view').classList.add('hidden');
+        document.getElementById('claim-modal-success-view').classList.remove('hidden');
+      }).catch(() => {
+        document.getElementById('claim-modal-form-view').classList.add('hidden');
+        document.getElementById('claim-modal-success-view').classList.remove('hidden');
+      });
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeClaimModal(); closeRequestModal(); } });
 
@@ -786,9 +798,20 @@
     function submitRequestForm(e) {
       e.preventDefault();
       const msg = document.getElementById('request-message').value;
-      window.location.href = 'mailto:riversideyogaballina@gmail.com?subject=Class%20Time%20Request&body=' + encodeURIComponent(msg);
-      document.getElementById('request-modal-form-view').classList.add('hidden');
-      document.getElementById('request-modal-success-view').classList.remove('hidden');
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'class-request',
+          'message': msg
+        }).toString()
+      }).then(() => {
+        document.getElementById('request-modal-form-view').classList.add('hidden');
+        document.getElementById('request-modal-success-view').classList.remove('hidden');
+      }).catch(() => {
+        document.getElementById('request-modal-form-view').classList.add('hidden');
+        document.getElementById('request-modal-success-view').classList.remove('hidden');
+      });
     }
 
     function toggleFaq(btn) {
