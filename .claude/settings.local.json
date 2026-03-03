@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node --version)",
+      "Bash(npx --yes @sparticuz/chromium-min@119)",
+      "Bash(npx --yes puppeteer-cli screenshot \"file:///Users/collettekeehnen/projects/Riverside%20Yoga%20Website/index.html\" --fullPage --output screenshot-v1.png)",
+      "Bash(npm cache clean --force)",
+      "Read(//private/tmp/puppet-proj/**)"
+    ]
+  }
+}
