@@ -537,6 +537,7 @@
 
       <p class="text-navy/40 text-xs mb-3 uppercase tracking-wide">Stay up to date with class schedules, events, and more.</p>
       <form name="newsletter" netlify class="flex max-w-sm mx-auto mb-8">
+        <input type="hidden" name="form-name" value="newsletter">
         <input
           type="email"
           name="email"
@@ -662,6 +663,7 @@
         <p class="text-navy/60 text-[13px] mb-5">We can't wait to meet you!</p>
 
         <form name="free-class" netlify onsubmit="submitClaimForm(event)">
+          <input type="hidden" name="form-name" value="free-class">
           <input type="hidden" name="tag" value="free-class">
           <input
             id="claim-email"
@@ -708,6 +710,7 @@
         </p>
 
         <form name="class-request" netlify onsubmit="submitRequestForm(event)">
+          <input type="hidden" name="form-name" value="class-request">
           <textarea
             id="request-message"
             name="message"
