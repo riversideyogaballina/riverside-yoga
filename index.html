@@ -141,17 +141,17 @@
 <body class="bg-cream text-navy font-body">
 
   <!-- ── Netlify form stubs (static HTML for build-time detection) ── -->
-  <div hidden>
-    <form name="free-class" netlify>
+  <div style="display:none">
+    <form name="free-class" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="free-class">
       <input type="hidden" name="tag" value="free-class">
       <input type="email" name="email">
     </form>
-    <form name="class-request" netlify>
+    <form name="class-request" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="class-request">
       <textarea name="message"></textarea>
     </form>
-    <form name="newsletter" netlify>
+    <form name="newsletter" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="newsletter">
       <input type="email" name="email">
     </form>
@@ -553,7 +553,7 @@
       </div>
 
       <p class="text-navy/40 text-xs mb-3 uppercase tracking-wide">Stay up to date with class schedules, events, and more.</p>
-      <form name="newsletter" netlify class="flex max-w-sm mx-auto mb-8">
+      <form name="newsletter" method="POST" data-netlify="true" class="flex max-w-sm mx-auto mb-8">
         <input type="hidden" name="form-name" value="newsletter">
         <input
           type="email"
@@ -679,7 +679,7 @@
         </p>
         <p class="text-navy/60 text-[13px] mb-5">We can't wait to meet you!</p>
 
-        <form name="free-class" netlify onsubmit="submitClaimForm(event)">
+        <form name="free-class" method="POST" data-netlify="true" onsubmit="submitClaimForm(event)">
           <input type="hidden" name="form-name" value="free-class">
           <input type="hidden" name="tag" value="free-class">
           <input
@@ -726,7 +726,7 @@
           We'd love to hear from you. Which days and times would you like to attend a class?
         </p>
 
-        <form name="class-request" netlify onsubmit="submitRequestForm(event)">
+        <form name="class-request" method="POST" data-netlify="true" onsubmit="submitRequestForm(event)">
           <input type="hidden" name="form-name" value="class-request">
           <textarea
             id="request-message"
