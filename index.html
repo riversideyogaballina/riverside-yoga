@@ -72,9 +72,9 @@
     }
   </script>
   <style>
-    html { zoom: 1.5; }
+    @media (min-width: 768px) { html { zoom: 1.5; } }
     * { box-sizing: border-box; }
-    body { background-color: #f8f6f1; font-family: 'Inter', sans-serif; color: #0c1259; }
+    body { background-color: #f8f6f1; font-family: 'Inter', sans-serif; color: #0c1259; overflow-x: hidden; }
     .font-display { font-family: 'Bebas Neue', sans-serif; }
 
     /* ── Hero animations ── */
@@ -136,6 +136,38 @@
     .faq-item.open .faq-answer { grid-template-rows: 1fr; }
     .faq-item.open .faq-icon { transform: rotate(180deg); }
     .faq-icon { transition: transform 0.2s ease; display: inline-block; }
+
+    /* ── Mobile ── */
+    @media (max-width: 767px) {
+      p, li, address, label, span.text-body { font-size: 15px; line-height: 1.65; }
+
+      /* Gallery: single square image */
+      #gallery {
+        height: 100vw !important;
+        padding: 0 !important;
+        gap: 0 !important;
+      }
+      .g-img {
+        width: 0 !important;
+        height: 0 !important;
+        opacity: 0 !important;
+        overflow: hidden !important;
+        pointer-events: none !important;
+      }
+      .g-img.g-active {
+        width: 100% !important;
+        height: 100vw !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        border-radius: 0 !important;
+      }
+      .g-img.g-active img {
+        position: static !important;
+        transform: none !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-cream text-navy font-body">
@@ -225,7 +257,7 @@
   <section class="bg-white py-20 px-8 md:px-16 fade-up">
     <div class="max-w-5xl mx-auto">
       <h2 class="font-display text-[40px] text-navy text-center uppercase mb-14 tracking-wide">Why Practice With Us</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
 
         <!-- All Ages -->
         <div class="flex flex-col items-center text-center p-5 border border-gray-200 rounded-xl">
@@ -362,7 +394,7 @@
             First Class Free
           </span>
         </div>
-        <div class="flex items-center justify-center gap-5 text-[11px] text-navy/50 uppercase tracking-wide flex-nowrap whitespace-nowrap">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-5 text-xs md:text-[11px] text-navy/50 uppercase tracking-wide">
           <span class="flex items-center gap-1.5">
             <svg class="w-3.5 h-3.5 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
@@ -802,10 +834,12 @@
       galleryActive = index;
       document.querySelectorAll('.g-img').forEach((el, i) => {
         if (i === index) {
+          el.classList.add('g-active');
           el.style.width = '50%';
           el.style.height = '100%';
           el.style.opacity = '1';
         } else {
+          el.classList.remove('g-active');
           el.style.width = '22%';
           el.style.height = '83%';
           el.style.opacity = '0.6';
