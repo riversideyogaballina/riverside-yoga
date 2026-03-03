@@ -209,7 +209,7 @@
     </form>
     <form name="newsletter" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="newsletter">
-      <input type="email" name="email">
+      <input type="email" name="EMAIL">
     </form>
   </div>
 
@@ -609,12 +609,16 @@
       </div>
 
       <p class="text-navy/40 text-xs mb-3 uppercase tracking-wide">Stay up to date with class schedules, events, and more.</p>
-      <form id="newsletter-form" name="newsletter" method="POST" data-netlify="true" class="flex max-w-sm mx-auto mb-8" onsubmit="submitNewsletter(event)">
+      <form id="newsletter-form" name="newsletter" method="POST" action="https://riversideyogaballina.us16.list-manage.com/subscribe/post?u=0094b826193c9adaedc2ccf66&amp;id=b625a19848&amp;f_id=00d61ee1f0" data-netlify="true" class="flex max-w-sm mx-auto mb-8" onsubmit="submitNewsletter(event)">
         <input type="hidden" name="form-name" value="newsletter">
+        <input type="hidden" name="u" value="0094b826193c9adaedc2ccf66">
+        <input type="hidden" name="id" value="b625a19848">
+        <input type="hidden" name="f_id" value="00d61ee1f0">
         <input
           type="email"
-          name="email"
+          name="EMAIL"
           placeholder="Enter your email"
+          required
           class="flex-1 border border-gray-300 bg-white px-4 py-3 text-sm outline-none focus:border-navy text-navy placeholder-navy/30"
         >
         <button type="submit" class="bg-navy text-white px-5 py-3 text-[11px] font-bold uppercase tracking-widest rounded-lg hover:bg-navy/90 transition flex-shrink-0">
@@ -814,14 +818,23 @@
     function submitNewsletter(e) {
       e.preventDefault();
       const form = document.getElementById('newsletter-form');
+      const email = form.querySelector('[name="EMAIL"]').value;
+
+      // Submit to Netlify
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(new FormData(form)).toString()
-      }).finally(() => {
-        form.classList.add('hidden');
-        document.getElementById('newsletter-success').classList.remove('hidden');
       });
+
+      // Submit to Mailchimp via JSONP
+      window._mcCb = function() {};
+      const script = document.createElement('script');
+      script.src = 'https://riversideyogaballina.us16.list-manage.com/subscribe/post-json?u=0094b826193c9adaedc2ccf66&id=b625a19848&f_id=00d61ee1f0&EMAIL=' + encodeURIComponent(email) + '&c=_mcCb';
+      document.head.appendChild(script);
+
+      form.classList.add('hidden');
+      document.getElementById('newsletter-success').classList.remove('hidden');
     }
 
     // Claim modal
