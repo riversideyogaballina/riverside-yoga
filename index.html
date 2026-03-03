@@ -845,6 +845,21 @@
       e.preventDefault();
       const form = document.getElementById('claim-form');
       const email = document.getElementById('claim-email').value;
+      const subscribed = document.getElementById('claim-subscribe').checked;
+
+      // Add/remove newsletter hidden field dynamically
+      let newsletterInput = form.querySelector('input[name="newsletter"]');
+      if (subscribed) {
+        if (!newsletterInput) {
+          newsletterInput = document.createElement('input');
+          newsletterInput.type = 'hidden';
+          newsletterInput.name = 'newsletter';
+          newsletterInput.value = 'newsletter';
+          form.appendChild(newsletterInput);
+        }
+      } else if (newsletterInput) {
+        newsletterInput.remove();
+      }
 
       // Submit to Netlify
       fetch('/', {
@@ -853,10 +868,13 @@
         body: new URLSearchParams(new FormData(form)).toString()
       });
 
-      // Submit to Mailchimp via JSONP with free-class tag
+      // Submit to Mailchimp via JSONP with free-class tag (+ newsletter if checked)
       window._mcClaimCb = function() {};
       const script = document.createElement('script');
-      script.src = 'https://riversideyogaballina.us16.list-manage.com/subscribe/post-json?u=0094b826193c9adaedc2ccf66&id=b625a19848&f_id=00d61ee1f0&EMAIL=' + encodeURIComponent(email) + '&tag=free-class&c=_mcClaimCb';
+      let mcUrl = 'https://riversideyogaballina.us16.list-manage.com/subscribe/post-json?u=0094b826193c9adaedc2ccf66&id=b625a19848&f_id=00d61ee1f0&EMAIL=' + encodeURIComponent(email) + '&tag=free-class';
+      if (subscribed) mcUrl += '&newsletter=newsletter';
+      mcUrl += '&c=_mcClaimCb';
+      script.src = mcUrl;
       document.head.appendChild(script);
 
       document.getElementById('claim-modal-form-view').classList.add('hidden');
