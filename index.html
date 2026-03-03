@@ -201,7 +201,7 @@
     <form name="free-class" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="free-class">
       <input type="hidden" name="tag" value="free-class">
-      <input type="email" name="email">
+      <input type="email" name="EMAIL">
     </form>
     <form name="class-request" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="class-request">
@@ -740,13 +740,16 @@
         </p>
         <p class="text-navy/60 text-[13px] mb-5">We can't wait to meet you!</p>
 
-        <form name="free-class" method="POST" data-netlify="true">
+        <form id="claim-form" name="free-class" method="POST" action="https://riversideyogaballina.us16.list-manage.com/subscribe/post?u=0094b826193c9adaedc2ccf66&amp;id=b625a19848&amp;f_id=00d61ee1f0" data-netlify="true" onsubmit="submitClaimForm(event)">
           <input type="hidden" name="form-name" value="free-class">
           <input type="hidden" name="tag" value="free-class">
+          <input type="hidden" name="u" value="0094b826193c9adaedc2ccf66">
+          <input type="hidden" name="id" value="b625a19848">
+          <input type="hidden" name="f_id" value="00d61ee1f0">
           <input
             id="claim-email"
             type="email"
-            name="email"
+            name="EMAIL"
             placeholder="Enter your email"
             required
             class="w-full border-2 border-navy rounded-xl px-4 py-3 text-navy bg-cream placeholder-navy/30 text-sm outline-none focus:border-terracotta mb-3"
@@ -835,6 +838,29 @@
 
       form.classList.add('hidden');
       document.getElementById('newsletter-success').classList.remove('hidden');
+    }
+
+    // Claim form
+    function submitClaimForm(e) {
+      e.preventDefault();
+      const form = document.getElementById('claim-form');
+      const email = document.getElementById('claim-email').value;
+
+      // Submit to Netlify
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      });
+
+      // Submit to Mailchimp via JSONP with free-class tag
+      window._mcClaimCb = function() {};
+      const script = document.createElement('script');
+      script.src = 'https://riversideyogaballina.us16.list-manage.com/subscribe/post-json?u=0094b826193c9adaedc2ccf66&id=b625a19848&f_id=00d61ee1f0&EMAIL=' + encodeURIComponent(email) + '&tag=free-class&c=_mcClaimCb';
+      document.head.appendChild(script);
+
+      document.getElementById('claim-modal-form-view').classList.add('hidden');
+      document.getElementById('claim-modal-success-view').classList.remove('hidden');
     }
 
     // Claim modal
