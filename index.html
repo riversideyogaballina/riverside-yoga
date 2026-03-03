@@ -140,6 +140,23 @@
 </head>
 <body class="bg-cream text-navy font-body">
 
+  <!-- ── Netlify form stubs (static HTML for build-time detection) ── -->
+  <div hidden>
+    <form name="free-class" netlify>
+      <input type="hidden" name="form-name" value="free-class">
+      <input type="hidden" name="tag" value="free-class">
+      <input type="email" name="email">
+    </form>
+    <form name="class-request" netlify>
+      <input type="hidden" name="form-name" value="class-request">
+      <textarea name="message"></textarea>
+    </form>
+    <form name="newsletter" netlify>
+      <input type="hidden" name="form-name" value="newsletter">
+      <input type="email" name="email">
+    </form>
+  </div>
+
   <!-- ── Announcement Banner ─────────────────────────────────────── -->
   <div id="banner" class="sticky top-0 z-50 bg-navy text-white py-2.5 px-4 flex items-center justify-center relative text-xs">
     <p class="uppercase tracking-widest font-medium text-center">
