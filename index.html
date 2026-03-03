@@ -553,7 +553,7 @@
       </div>
 
       <p class="text-navy/40 text-xs mb-3 uppercase tracking-wide">Stay up to date with class schedules, events, and more.</p>
-      <form name="newsletter" method="POST" data-netlify="true" class="flex max-w-sm mx-auto mb-8">
+      <form id="newsletter-form" name="newsletter" method="POST" data-netlify="true" class="flex max-w-sm mx-auto mb-8" onsubmit="submitNewsletter(event)">
         <input type="hidden" name="form-name" value="newsletter">
         <input
           type="email"
@@ -565,6 +565,7 @@
           Subscribe
         </button>
       </form>
+      <p id="newsletter-success" class="hidden text-navy text-sm mb-8">Thanks for subscribing!</p>
 
       <a href="#pricing"
          class="inline-block bg-navy text-white px-8 py-3 text-[11px] font-bold uppercase tracking-[0.15em] rounded-lg hover:bg-navy/90 transition">
@@ -753,6 +754,20 @@
 
   <!-- ── JavaScript ─────────────────────────────────────────────── -->
   <script>
+    // Newsletter
+    function submitNewsletter(e) {
+      e.preventDefault();
+      const form = document.getElementById('newsletter-form');
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).finally(() => {
+        form.classList.add('hidden');
+        document.getElementById('newsletter-success').classList.remove('hidden');
+      });
+    }
+
     // Claim modal
     function openClaimModal() {
       document.getElementById('claim-modal').classList.add('open');
