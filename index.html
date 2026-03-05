@@ -77,6 +77,7 @@
   <style>
     @media (min-width: 768px) { html { zoom: 1.5; } }
     * { box-sizing: border-box; }
+    html { overflow-x: hidden; }
     body { background-color: #f8f6f1; font-family: 'Inter', sans-serif; color: #0c1259; overflow-x: hidden; }
     .font-display { font-family: 'Bebas Neue', sans-serif; }
 
@@ -217,10 +218,10 @@
   </div>
 
   <!-- ── Announcement Banner ─────────────────────────────────────── -->
-  <div id="banner" class="sticky top-0 z-50 bg-navy text-white py-2.5 px-4 flex items-center justify-center relative text-xs">
-    <p class="uppercase tracking-widest font-medium text-center">
+  <div id="banner" class="sticky top-0 z-50 bg-navy text-white py-2.5 px-4 flex items-center justify-center relative">
+    <p class="uppercase tracking-widest font-medium text-center text-[11px]">
       We're excited to offer your first class free!
-      <button onclick="openClaimModal()" class="ml-3 inline-block bg-terracotta text-white px-3 py-0.5 rounded-lg text-[11px] font-bold uppercase tracking-wider hover:opacity-90 transition cursor-pointer">
+      <button onclick="openClaimModal()" class="ml-3 inline-block bg-terracotta text-white px-4 py-1 rounded-lg text-[11px] font-bold uppercase tracking-wider hover:opacity-90 transition cursor-pointer">
         Claim Free Class
       </button>
     </p>
@@ -411,7 +412,7 @@
   <section id="pricing" class="bg-cream py-16 px-8 md:px-16 fade-up">
     <div class="max-w-4xl mx-auto">
       <h2 class="font-display text-[32px] text-navy text-center uppercase tracking-wide mb-2">Pricing</h2>
-      <p class="text-center text-navy/50 text-xs mb-8">No lock-in contracts. No missed class fees. Cancel your membership anytime.</p>
+      <p class="text-center text-navy/50 text-xs mb-8 leading-relaxed">No lock-in contracts. No missed class fees. Cancel your membership anytime.</p>
 
       <!-- First Class Free banner -->
       <div class="relative bg-white border border-gray-200 rounded-lg px-6 pt-8 pb-4 flex flex-col items-center text-center gap-3 mb-6 max-w-md mx-auto">
@@ -421,20 +422,20 @@
             First Class Free
           </span>
         </div>
-        <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-5 text-xs md:text-[11px] text-navy/50 uppercase tracking-wide">
-          <span class="flex items-center gap-1.5">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-5 text-xs md:text-[11px] text-navy/50 uppercase tracking-wide">
+          <span class="inline-flex items-center gap-1.5 w-fit">
             <svg class="w-3.5 h-3.5 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
             </svg>
             No catch
           </span>
-          <span class="flex items-center gap-1.5">
+          <span class="inline-flex items-center gap-1.5 w-fit leading-relaxed">
             <svg class="w-3.5 h-3.5 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
             </svg>
             Try before you commit
           </span>
-          <span class="flex items-center gap-1.5">
+          <span class="inline-flex items-center gap-1.5 w-fit leading-relaxed">
             <svg class="w-3.5 h-3.5 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
             </svg>
@@ -562,7 +563,7 @@
   <section class="bg-white py-20 px-8 md:px-16 fade-up">
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="font-display text-[40px] text-navy uppercase tracking-wide mb-2">Your Teachers</h2>
-      <p class="text-navy/50 text-sm mb-14">Experienced instructors dedicated to your practice</p>
+      <p class="text-navy/50 text-sm mb-14 leading-relaxed">Experienced instructors dedicated to your practice</p>
       <div class="grid grid-cols-2 gap-16 max-w-sm mx-auto">
         <div class="flex flex-col items-center">
           <div class="w-[180px] h-[180px] rounded-lg overflow-hidden mb-4">
@@ -584,15 +585,15 @@
   <section id="contact" class="bg-cream py-20 px-8 md:px-16 fade-up">
     <div class="max-w-xl mx-auto text-center">
       <h2 class="font-display text-[40px] text-navy uppercase tracking-wide mb-2">Get In Touch</h2>
-      <p class="text-navy/50 text-sm mb-10">Questions? We would love to hear from you.</p>
+      <p class="text-navy/50 text-sm mb-10 leading-relaxed">Questions? We would love to hear from you.</p>
 
-      <div class="flex flex-col items-center gap-4 mb-10">
-        <div class="flex items-center gap-2.5 text-sm text-navy/80">
+      <div class="flex flex-col items-center gap-6 mb-10">
+        <div class="flex items-center gap-2.5 text-sm text-navy/80 min-w-0">
           <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
               d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
           </svg>
-          <a href="mailto:riversideyogaballina@gmail.com" class="hover:underline">riversideyogaballina@gmail.com</a>
+          <a href="mailto:riversideyogaballina@gmail.com" class="hover:underline break-all leading-relaxed">riversideyogaballina@gmail.com</a>
         </div>
         <div class="flex items-center gap-2.5 text-sm text-navy/80">
           <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -607,16 +608,17 @@
               d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
           </svg>
-          <a href="https://maps.google.com/?q=Ballina+Scout+Hall+33+Canal+Road+Ballina+NSW+2478" target="_blank" rel="noopener" class="hover:underline">Ballina Scout Hall, 33 Canal Road, Ballina NSW 2478</a>
+          <a href="https://maps.google.com/?q=Ballina+Scout+Hall+33+Canal+Road+Ballina+NSW+2478" target="_blank" rel="noopener" class="hover:underline leading-relaxed">Ballina Scout Hall, 33 Canal Road, Ballina NSW 2478</a>
         </div>
       </div>
 
-      <p class="text-navy/40 text-xs mb-3 uppercase tracking-wide">Stay up to date with class schedules, events, and more.</p>
-      <form id="newsletter-form" name="newsletter" method="POST" action="https://riversideyogaballina.us16.list-manage.com/subscribe/post?u=0094b826193c9adaedc2ccf66&amp;id=b625a19848&amp;f_id=00d61ee1f0" data-netlify="true" class="flex max-w-sm mx-auto mb-8" onsubmit="submitNewsletter(event)">
+      <p class="text-navy/40 text-xs mb-3 uppercase tracking-wide leading-relaxed">Stay up to date with class schedules, events, and more.</p>
+      <form id="newsletter-form" name="newsletter" method="POST" action="https://riversideyogaballina.us16.list-manage.com/subscribe/post?u=0094b826193c9adaedc2ccf66&amp;id=b625a19848&amp;f_id=00d61ee1f0" data-netlify="true" class="flex flex-col sm:flex-row max-w-sm mx-auto mb-8 gap-2 sm:gap-0" onsubmit="submitNewsletter(event)">
         <input type="hidden" name="form-name" value="newsletter">
         <input type="hidden" name="u" value="0094b826193c9adaedc2ccf66">
         <input type="hidden" name="id" value="b625a19848">
         <input type="hidden" name="f_id" value="00d61ee1f0">
+        <div hidden=""><input type="hidden" name="tags" value="2215552"></div>
         <input
           type="email"
           name="EMAIL"
@@ -624,7 +626,7 @@
           required
           class="flex-1 border border-gray-300 bg-white px-4 py-3 text-sm outline-none focus:border-navy text-navy placeholder-navy/30"
         >
-        <button type="submit" class="bg-navy text-white px-5 py-3 text-[11px] font-bold uppercase tracking-widest rounded-lg hover:bg-navy/90 transition flex-shrink-0">
+        <button type="submit" class="bg-navy text-white px-5 py-3 text-[11px] font-bold uppercase tracking-widest rounded-lg hover:bg-navy/90 transition flex-shrink-0 w-full sm:w-auto">
           Subscribe
         </button>
       </form>
@@ -743,12 +745,13 @@
         </p>
         <p class="text-navy/60 text-[13px] mb-5">We can't wait to meet you!</p>
 
-        <form id="claim-form" name="free-class" method="POST" action="https://riversideyogaballina.us16.list-manage.com/subscribe/post?u=0094b826193c9adaedc2ccf66&amp;id=b625a19848&amp;f_id=00d61ee1f0" data-netlify="true" onsubmit="submitClaimForm(event)">
+        <form id="claim-form" name="free-class" method="POST" action="https://riversideyogaballina.us16.list-manage.com/subscribe/post?u=0094b826193c9adaedc2ccf66&amp;id=b625a19848&amp;f_id=00d51ee1f0" data-netlify="true" onsubmit="submitClaimForm(event)">
           <input type="hidden" name="form-name" value="free-class">
           <input type="hidden" name="tag" value="free-class">
           <input type="hidden" name="u" value="0094b826193c9adaedc2ccf66">
           <input type="hidden" name="id" value="b625a19848">
           <input type="hidden" name="f_id" value="00d61ee1f0">
+          <div hidden=""><input type="hidden" name="tags" value="615111"></div>
           <input
             id="claim-email"
             type="email"
@@ -793,7 +796,7 @@
           We'd love to hear from you. Which days and times would you like to attend a class?
         </p>
 
-        <form name="class-request" method="POST" data-netlify="true">
+        <form id="request-form" name="class-request" method="POST" data-netlify="true" onsubmit="submitRequestForm(event)">
           <input type="hidden" name="form-name" value="class-request">
           <textarea
             id="request-message"
@@ -812,8 +815,7 @@
 
       <div id="request-modal-success-view" class="hidden text-center py-4">
         <p class="text-terracotta text-4xl mb-3">✓</p>
-        <h2 class="font-display text-[29px] text-navy uppercase mb-2">Request sent!</h2>
-        <p class="text-navy/60 text-sm leading-relaxed">Thanks for letting us know. We'll be in touch soon about scheduling.</p>
+        <h2 class="font-display text-[29px] text-navy uppercase mb-2">Thank you for your request!</h2>
       </div>
     </div>
   </div>
@@ -874,7 +876,7 @@
       // Submit to Mailchimp via JSONP with free-class tag (+ newsletter if checked)
       window._mcClaimCb = function() {};
       const script = document.createElement('script');
-      let mcUrl = 'https://riversideyogaballina.us16.list-manage.com/subscribe/post-json?u=0094b826193c9adaedc2ccf66&id=b625a19848&f_id=00d61ee1f0&EMAIL=' + encodeURIComponent(email) + '&tag=free-class';
+      let mcUrl = 'https://riversideyogaballina.us16.list-manage.com/subscribe/post-json?u=0094b826193c9adaedc2ccf66&id=b625a19848&f_id=00d51ee1f0&EMAIL=' + encodeURIComponent(email) + '&tag=free-class';
       if (subscribed) mcUrl += '&newsletter=newsletter';
       mcUrl += '&c=_mcClaimCb';
       script.src = mcUrl;
@@ -896,6 +898,18 @@
       document.body.style.overflow = '';
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeClaimModal(); closeRequestModal(); } });
+
+    function submitRequestForm(e) {
+      e.preventDefault();
+      const form = document.getElementById('request-form');
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      });
+      document.getElementById('request-modal-form-view').classList.add('hidden');
+      document.getElementById('request-modal-success-view').classList.remove('hidden');
+    }
 
     function openRequestModal() {
       document.getElementById('request-modal').classList.add('open');
