@@ -35,7 +35,7 @@
     "priceRange": "$20–$34",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "33 Canal Road",
+      "streetAddress": "33 Canal Rd",
       "addressLocality": "Ballina",
       "addressRegion": "NSW",
       "postalCode": "2478",
@@ -47,8 +47,11 @@
       "longitude": 153.5671
     },
     "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday",  "opens": "16:00", "closes": "17:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "07:30", "closes": "08:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday",  "opens": "07:00", "closes": "08:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday",  "opens": "08:00", "closes": "09:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "17:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "18:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "10:00" },
       { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "11:00" }
     ],
     "sameAs": []
@@ -218,7 +221,7 @@
   </div>
 
   <!-- ── Announcement Banner ─────────────────────────────────────── -->
-  <div id="banner" class="sticky top-0 z-50 bg-navy text-white py-2.5 px-4 flex items-center justify-center relative">
+  <div id="banner" class="fixed top-0 left-0 right-0 z-50 bg-navy text-white py-2.5 px-4 flex items-center justify-center">
     <p class="uppercase tracking-widest font-medium text-center text-[11px]">
       We're excited to offer your first class free!
       <button onclick="openClaimModal()" class="ml-3 inline-block bg-terracotta text-white px-4 py-1 rounded-lg text-[11px] font-bold uppercase tracking-wider hover:opacity-90 transition cursor-pointer">
@@ -233,7 +236,7 @@
   </div>
 
   <!-- ── Hero ───────────────────────────────────────────────────── -->
-  <section class="bg-cream py-20 pt-24 px-8 md:px-16 lg:px-28 relative overflow-hidden">
+  <section class="bg-cream py-20 pt-32 px-8 md:px-16 lg:px-28 relative overflow-hidden">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
       <!-- Left: text -->
@@ -344,29 +347,51 @@
   <section id="schedule" class="bg-cream py-20 px-8 md:px-16 fade-up">
     <div class="max-w-xl mx-auto text-center">
       <h2 class="font-display text-[40px] text-navy uppercase tracking-wide mb-1">Class Schedule</h2>
-      <div class="w-10 h-0.5 bg-terracotta mx-auto mb-10"></div>
+      <div class="w-10 h-0.5 bg-terracotta mx-auto mb-6"></div>
+      <p class="text-navy/60 text-sm leading-relaxed mb-10">Vinyasa yoga is a dynamic, flowing style of yoga where movement is linked to breath. Unlike static styles, no two classes are exactly the same, which keeps the practice fresh and engaging. It's suitable for all levels, and at Riverside Yoga our classes are designed to be welcoming for complete beginners with options for more advanced students.</p>
 
       <!-- Schedule card -->
       <div class="bg-white border border-gray-200 rounded-lg overflow-hidden mb-8 text-left">
         <div class="flex items-center justify-center py-5 border-b border-gray-100 gap-8">
           <span class="font-display text-[38px] text-navy leading-none w-20 flex-shrink-0 text-right">TUE</span>
-          <div class="w-36">
-            <p class="font-bold text-navy text-[10px] uppercase tracking-[0.25em] mb-0.5">Vinyasa</p>
-            <p class="text-navy/50 text-sm">4 PM – 5 PM</p>
+          <div class="flex items-center gap-4">
+            <div>
+              <p class="font-bold text-navy text-[10px] uppercase tracking-[0.25em] mb-0.5">Vinyasa</p>
+              <p class="text-navy/50 text-sm">7:00 AM – 8:00 AM</p>
+            </div>
+            <div class="w-px h-8 bg-gray-200 flex-shrink-0"></div>
+            <div>
+              <p class="font-bold text-navy text-[10px] uppercase tracking-[0.25em] mb-0.5">Vinyasa</p>
+              <p class="text-navy/50 text-sm">8:00 AM – 9:00 AM</p>
+            </div>
           </div>
         </div>
         <div class="flex items-center justify-center py-5 border-b border-gray-100 gap-8">
           <span class="font-display text-[38px] text-navy leading-none w-20 flex-shrink-0 text-right">THU</span>
-          <div class="w-36">
-            <p class="font-bold text-navy text-[10px] uppercase tracking-[0.25em] mb-0.5">Vinyasa</p>
-            <p class="text-navy/50 text-sm">7:30 AM – 8:30 AM</p>
+          <div class="flex items-center gap-4">
+            <div>
+              <p class="font-bold text-navy text-[10px] uppercase tracking-[0.25em] mb-0.5">Vinyasa</p>
+              <p class="text-navy/50 text-sm">5:00 PM – 6:00 PM</p>
+            </div>
+            <div class="w-px h-8 bg-gray-200 flex-shrink-0"></div>
+            <div>
+              <p class="font-bold text-navy text-[10px] uppercase tracking-[0.25em] mb-0.5">Vinyasa</p>
+              <p class="text-navy/50 text-sm">6:00 PM – 7:00 PM</p>
+            </div>
           </div>
         </div>
         <div class="flex items-center justify-center py-5 gap-8">
           <span class="font-display text-[38px] text-navy leading-none w-20 flex-shrink-0 text-right">SAT</span>
-          <div class="w-36">
-            <p class="font-bold text-navy text-[10px] uppercase tracking-[0.25em] mb-0.5">Vinyasa</p>
-            <p class="text-navy/50 text-sm">10 AM – 11 AM</p>
+          <div class="flex items-center gap-4">
+            <div>
+              <p class="font-bold text-navy text-[10px] uppercase tracking-[0.25em] mb-0.5">Vinyasa</p>
+              <p class="text-navy/50 text-sm">9:00 AM – 10:00 AM</p>
+            </div>
+            <div class="w-px h-8 bg-gray-200 flex-shrink-0"></div>
+            <div>
+              <p class="font-bold text-navy text-[10px] uppercase tracking-[0.25em] mb-0.5">Vinyasa</p>
+              <p class="text-navy/50 text-sm">10:00 AM – 11:00 AM</p>
+            </div>
           </div>
         </div>
       </div>
@@ -395,6 +420,10 @@
           <img src="yoga 2.jpg" alt="Riverside Yoga Ballina community Vinyasa yoga class" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div class="g-img" data-index="2" onclick="setGallery(2)"
+             style="flex-shrink:0; width:22%; height:83%; opacity:0.6; overflow:hidden; cursor:pointer; transition:all 0.55s ease; border-radius:14px;">
+          <img src="yoga 4.jpg" alt="Vinyasa yoga class at Riverside Yoga studio Ballina NSW" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="g-img" data-index="3" onclick="setGallery(3)"
              style="flex-shrink:0; width:22%; height:83%; opacity:0.6; overflow:hidden; cursor:pointer; transition:all 0.55s ease; border-radius:14px; position:relative;">
           <img src="yoga 3.jpg" alt="Beginner yoga class Ballina NSW at Riverside Yoga" loading="lazy" style="position:absolute; top:50%; left:50%; width:100%; height:100%; object-fit:cover; transform:translate(-50%,-50%) rotate(90deg) scale(1.4);">
         </div>
@@ -405,6 +434,7 @@
       <div class="g-dot w-1.5 h-1.5 rounded-full bg-gray-300 transition-all duration-300" data-index="0"></div>
       <div class="g-dot w-6 h-1.5 rounded-full bg-terracotta transition-all duration-300" data-index="1"></div>
       <div class="g-dot w-1.5 h-1.5 rounded-full bg-gray-300 transition-all duration-300" data-index="2"></div>
+      <div class="g-dot w-1.5 h-1.5 rounded-full bg-gray-300 transition-all duration-300" data-index="3"></div>
     </div>
   </section>
 
@@ -491,7 +521,7 @@
           <h3 class="font-display text-2xl uppercase mb-1">Unlimited</h3>
           <div class="mb-4">
             <span class="font-display text-[45px] leading-none">$34</span>
-            <span class="text-white/40 text-xs ml-1">per month</span>
+            <span class="text-white/40 text-xs ml-1">per week</span>
           </div>
           <ul class="space-y-2 flex-1 mb-6">
             <li class="flex items-center gap-2 text-[11px] text-white/80">
@@ -581,64 +611,6 @@
     </div>
   </section>
 
-  <!-- ── Get In Touch ───────────────────────────────────────────── -->
-  <section id="contact" class="bg-cream py-20 px-8 md:px-16 fade-up">
-    <div class="max-w-xl mx-auto text-center">
-      <h2 class="font-display text-[40px] text-navy uppercase tracking-wide mb-2">Get In Touch</h2>
-      <p class="text-navy/50 text-sm mb-10 leading-relaxed">Questions? We would love to hear from you.</p>
-
-      <div class="flex flex-col items-center gap-6 mb-10">
-        <div class="flex items-center gap-2.5 text-sm text-navy/80 min-w-0">
-          <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-          </svg>
-          <a href="mailto:riversideyogaballina@gmail.com" class="hover:underline break-all leading-relaxed">riversideyogaballina@gmail.com</a>
-        </div>
-        <div class="flex items-center gap-2.5 text-sm text-navy/80">
-          <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-          </svg>
-          <a href="tel:0473168333" class="hover:underline">0473 168 333</a>
-        </div>
-        <div class="flex items-center gap-2.5 text-sm text-navy/80">
-          <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-          </svg>
-          <a href="https://maps.google.com/?q=Ballina+Scout+Hall+33+Canal+Road+Ballina+NSW+2478" target="_blank" rel="noopener" class="hover:underline leading-relaxed">Ballina Scout Hall, 33 Canal Road, Ballina NSW 2478</a>
-        </div>
-      </div>
-
-      <p class="text-navy/40 text-xs mb-3 uppercase tracking-wide leading-relaxed">Stay up to date with class schedules, events, and more.</p>
-      <form id="newsletter-form" name="newsletter" method="POST" action="https://riversideyogaballina.us16.list-manage.com/subscribe/post?u=0094b826193c9adaedc2ccf66&amp;id=b625a19848&amp;f_id=00d61ee1f0" data-netlify="true" class="flex flex-col sm:flex-row max-w-sm mx-auto mb-8 gap-2 sm:gap-0" onsubmit="submitNewsletter(event)">
-        <input type="hidden" name="form-name" value="newsletter">
-        <input type="hidden" name="u" value="0094b826193c9adaedc2ccf66">
-        <input type="hidden" name="id" value="b625a19848">
-        <input type="hidden" name="f_id" value="00d61ee1f0">
-        <div hidden=""><input type="hidden" name="tags" value="2215552"></div>
-        <input
-          type="email"
-          name="EMAIL"
-          placeholder="Enter your email"
-          required
-          class="flex-1 border border-gray-300 bg-white px-4 py-3 text-sm outline-none focus:border-navy text-navy placeholder-navy/30"
-        >
-        <button type="submit" class="bg-navy text-white px-5 py-3 text-[11px] font-bold uppercase tracking-widest rounded-lg hover:bg-navy/90 transition flex-shrink-0 w-full sm:w-auto">
-          Subscribe
-        </button>
-      </form>
-      <p id="newsletter-success" class="hidden text-navy text-sm mb-8">Thanks for subscribing!</p>
-
-      <a href="#pricing"
-         class="inline-block bg-navy text-white px-8 py-3 text-[11px] font-bold uppercase tracking-[0.15em] rounded-lg hover:bg-navy/90 transition">
-        Reserve Your Spot
-      </a>
-    </div>
-  </section>
-
   <!-- ── FAQ ───────────────────────────────────────────────────── -->
   <section class="bg-cream py-20 px-8 md:px-16 border-t border-gray-200 fade-up">
     <div class="max-w-2xl mx-auto">
@@ -655,7 +627,7 @@
             <svg class="faq-icon w-4 h-4 text-navy/40 ml-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-answer"><div class="faq-answer-inner"><div class="pb-5 text-sm text-navy/60 leading-relaxed">
-            Classes are held at the Ballina Scout Hall, directly across the street from 33 Canal Road, Ballina, NSW - a beautiful community space right by the Richmond River with plenty of parking.
+            Classes are held at the Ballina Scout Hall, directly across the street from 33 Canal Rd, Ballina, NSW - a beautiful community space right by the Richmond River with plenty of parking.
           </div></div></div>
         </div>
 
@@ -711,7 +683,78 @@
           </div></div></div>
         </div>
 
+        <div class="faq-item">
+          <button
+            onclick="toggleFaq(this)"
+            class="w-full flex items-center justify-between py-5 text-left text-sm font-medium text-navy"
+          >
+            <span>What is Vinyasa Yoga?</span>
+            <svg class="faq-icon w-4 h-4 text-navy/40 ml-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner"><div class="pb-5 text-sm text-navy/60 leading-relaxed">
+            Vinyasa yoga is a dynamic, flowing style of yoga where movement is linked to breath. Unlike static styles, no two classes are exactly the same, which keeps the practice fresh and engaging. It's suitable for all levels, and at Riverside Yoga our classes are designed to be welcoming for complete beginners with options for more advanced students.
+          </div></div></div>
+        </div>
+
       </div>
+    </div>
+  </section>
+
+  <!-- ── Get In Touch ───────────────────────────────────────────── -->
+  <section id="contact" class="bg-cream py-20 px-8 md:px-16 fade-up">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="font-display text-[40px] text-navy uppercase tracking-wide mb-2">Get In Touch</h2>
+      <p class="text-navy/50 text-sm mb-10 leading-relaxed">Questions? We would love to hear from you.</p>
+
+      <div class="flex flex-col items-center gap-6 mb-10">
+        <div class="flex items-center gap-2.5 text-sm text-navy/80 min-w-0">
+          <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <a href="mailto:riversideyogaballina@gmail.com" class="hover:underline break-all leading-relaxed">riversideyogaballina@gmail.com</a>
+        </div>
+        <div class="flex items-center gap-2.5 text-sm text-navy/80">
+          <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          <a href="tel:0473168333" class="hover:underline">0473 168 333</a>
+        </div>
+        <div class="flex items-center gap-2.5 text-sm text-navy/80">
+          <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          <a href="https://maps.google.com/?q=Ballina+Scout+Hall+33+Canal+Road+Ballina+NSW+2478" target="_blank" rel="noopener" class="hover:underline leading-relaxed">Ballina Scout Hall, 33 Canal Rd, Ballina NSW 2478</a>
+        </div>
+      </div>
+
+      <p class="text-navy/40 text-xs mb-3 uppercase tracking-wide leading-relaxed">Stay up to date with class schedules, events, and more.</p>
+      <form id="newsletter-form" name="newsletter" method="POST" action="https://riversideyogaballina.us16.list-manage.com/subscribe/post?u=0094b826193c9adaedc2ccf66&amp;id=b625a19848&amp;f_id=00d61ee1f0" data-netlify="true" class="flex flex-col sm:flex-row max-w-sm mx-auto mb-8 gap-2 sm:gap-0" onsubmit="submitNewsletter(event)">
+        <input type="hidden" name="form-name" value="newsletter">
+        <input type="hidden" name="u" value="0094b826193c9adaedc2ccf66">
+        <input type="hidden" name="id" value="b625a19848">
+        <input type="hidden" name="f_id" value="00d61ee1f0">
+        <div hidden=""><input type="hidden" name="tags" value="2215552"></div>
+        <input
+          type="email"
+          name="EMAIL"
+          placeholder="Enter your email"
+          required
+          class="flex-1 border border-gray-300 bg-white px-4 py-3 text-sm outline-none focus:border-navy text-navy placeholder-navy/30"
+        >
+        <button type="submit" class="bg-navy text-white px-5 py-3 text-[11px] font-bold uppercase tracking-widest rounded-lg hover:bg-navy/90 transition flex-shrink-0 w-full sm:w-auto">
+          Subscribe
+        </button>
+      </form>
+      <p id="newsletter-success" class="hidden text-navy text-sm mb-8">Thanks for subscribing!</p>
+
+      <a href="#pricing"
+         class="inline-block bg-navy text-white px-8 py-3 text-[11px] font-bold uppercase tracking-[0.15em] rounded-lg hover:bg-navy/90 transition">
+        Reserve Your Spot
+      </a>
     </div>
   </section>
 
@@ -719,7 +762,7 @@
   <footer class="bg-cream border-t border-gray-200 py-10 text-center">
     <p class="font-display text-2xl text-navy uppercase tracking-[0.2em] mb-2">Riverside Yoga Ballina</p>
     <address class="not-italic text-navy/50 text-xs leading-relaxed mb-3">
-      Ballina Scout Hall, 33 Canal Road, Ballina, New South Wales 2478<br>
+      Ballina Scout Hall, 33 Canal Rd, Ballina, New South Wales 2478<br>
       <a href="tel:0473168333" class="hover:underline">0473 168 333</a> &nbsp;·&nbsp;
       <a href="mailto:riversideyogaballina@gmail.com" class="hover:underline">riversideyogaballina@gmail.com</a>
     </address>
