@@ -107,32 +107,6 @@
       transform: translateY(0);
     }
 
-    /* ── Workshop scroll popup ── */
-    #workshop-popup {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 300;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
-    #workshop-popup.open { display: flex; }
-    #workshop-popup-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-    }
-    #workshop-popup-card {
-      position: relative;
-      background: #f8f6f1;
-      border-radius: 14px;
-      padding: 33px 33px 30px;
-      max-width: 420px;
-      width: 100%;
-      z-index: 1;
-    }
-
     /* ── Modals (claim + request) ── */
     #claim-modal, #request-modal {
       display: none;
@@ -244,20 +218,15 @@
       <input type="hidden" name="form-name" value="newsletter">
       <input type="email" name="EMAIL">
     </form>
-    <form name="workshop-interest" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="workshop-interest">
-      <input type="text" name="first-name">
-      <input type="email" name="email">
-    </form>
   </div>
 
   <!-- ── Announcement Banner ─────────────────────────────────────── -->
   <div id="banner" class="fixed top-0 left-0 right-0 z-50 bg-navy text-white py-2.5 px-4 flex items-center justify-center">
     <p class="uppercase tracking-widest font-medium text-center text-[11px]">
-      From the Ground Up — Beginner Workshop · May 9 · Limited Spots
-      <a href="/workshop" class="ml-3 inline-block bg-terracotta text-white px-4 py-1 rounded-lg text-[11px] font-bold uppercase tracking-wider hover:opacity-90 transition">
-        More Details →
-      </a>
+      We're excited to offer your first class free!
+      <button onclick="openClaimModal()" class="ml-3 inline-block bg-terracotta text-white px-4 py-1 rounded-lg text-[11px] font-bold uppercase tracking-wider hover:opacity-90 transition cursor-pointer">
+        Claim Free Class
+      </button>
     </p>
     <button
       onclick="document.getElementById('banner').remove()"
@@ -267,7 +236,7 @@
   </div>
 
   <!-- ── Hero ───────────────────────────────────────────────────── -->
-  <section class="bg-cream py-20 pt-16 px-8 md:px-16 lg:px-28 relative overflow-hidden">
+  <section class="bg-cream py-20 pt-32 px-8 md:px-16 lg:px-28 relative overflow-hidden">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
       <!-- Left: text -->
@@ -435,21 +404,6 @@
           Request a Class Time
         </button>
       </div>
-    </div>
-  </section>
-
-  <!-- ── Workshop Promo Section ───────────────────────────────── -->
-  <section class="bg-navy py-16 px-8 md:px-16 fade-up">
-    <div class="max-w-2xl mx-auto text-center">
-      <p class="text-terracotta text-[10px] font-bold uppercase tracking-widest mb-3">Special Event</p>
-      <h2 class="font-display text-[45px] text-white uppercase leading-[0.9] mb-4">From the Ground Up</h2>
-      <p class="text-white/70 text-sm leading-relaxed mb-2">A beginner workshop for anyone who's wondered "am I even doing this right?"</p>
-      <p class="text-white/50 text-[11px] uppercase tracking-widest mb-8">May 9 · 9:00am–10:30am · Limited spots</p>
-      <p class="text-white/70 text-sm leading-relaxed mb-8 max-w-lg mx-auto">We'll cover the basics properly — the poses, the breathing, the bits nobody explains. Fun, relaxed, no experience needed.</p>
-      <a href="/workshop"
-         class="inline-block bg-terracotta text-white px-8 py-3 text-[11px] font-bold uppercase tracking-[0.15em] rounded-lg hover:opacity-90 transition">
-        More Details →
-      </a>
     </div>
   </section>
 
@@ -637,39 +591,23 @@
 
   <!-- ── Your Teachers ──────────────────────────────────────────── -->
   <section class="bg-white py-20 px-8 md:px-16 fade-up">
-    <div class="max-w-5xl mx-auto text-center">
+    <div class="max-w-3xl mx-auto text-center">
       <h2 class="font-display text-[40px] text-navy uppercase tracking-wide mb-2">Your Teachers</h2>
       <p class="text-navy/50 text-sm mb-14 leading-relaxed">Experienced instructors dedicated to your practice</p>
-
-      <div class="flex flex-col md:flex-row gap-12 md:gap-8">
-
-        <!-- Collette -->
-        <div class="flex flex-col items-center text-center flex-1">
-          <div class="w-[180px] h-[180px] rounded-lg overflow-hidden mb-5">
-            <img src="collette.jpg" alt="Collette, yoga instructor at Riverside Yoga Ballina NSW" loading="lazy" class="w-full h-full object-cover">
+      <div class="grid grid-cols-2 gap-16 max-w-sm mx-auto">
+        <div class="flex flex-col items-center">
+          <div class="w-[180px] h-[180px] rounded-lg overflow-hidden mb-4">
+            <img src="collette.jpg" alt="Collette, Vinyasa yoga instructor at Riverside Yoga Ballina NSW" loading="lazy" class="w-full h-full object-cover">
           </div>
-          <h3 class="font-display text-2xl text-navy uppercase tracking-wider mb-4">Collette</h3>
-          <p class="text-navy/60 text-sm leading-relaxed">Collette Keehnen is a 200-hour certified yoga teacher with over 15 years of practice and a Northern Rivers local for the past decade.</p>
-          <p class="text-navy/60 text-sm leading-relaxed mt-3">Shaped by years of travel and a deep love of yoga philosophy, Collette's approach is grounded and unhurried. She has a special interest in helping people take what they learn on the mat and actually apply it to their lives, building a quiet confidence that extends well beyond the class.</p>
-          <p class="text-navy/60 text-sm leading-relaxed mt-3">She started teaching yoga with one simple intention: to create a space where everyone feels welcome and yoga is accessible to all.</p>
+          <h3 class="font-display text-2xl text-navy uppercase tracking-wider">Collette</h3>
         </div>
-
-        <!-- Divider -->
-        <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
-
-        <!-- Selin -->
-        <div class="flex flex-col items-center text-center flex-1">
-          <div class="w-[180px] h-[180px] rounded-lg overflow-hidden mb-5">
-            <img src="selin.jpg" alt="Selin, yoga instructor at Riverside Yoga Ballina NSW" loading="lazy" class="w-full h-full object-cover">
+        <div class="flex flex-col items-center">
+          <div class="w-[180px] h-[180px] rounded-lg overflow-hidden mb-4">
+            <img src="selin.jpg" alt="Selin, Vinyasa yoga instructor at Riverside Yoga Ballina NSW" loading="lazy" class="w-full h-full object-cover">
           </div>
-          <h3 class="font-display text-2xl text-navy uppercase tracking-wider mb-4">Selin</h3>
-          <p class="text-navy/60 text-sm leading-relaxed">Selin is a yoga teacher and hypnotherapist with over a decade of practice, trained by some of the world's most respected teachers across India, Turkey, the US and Australia.</p>
-          <p class="text-navy/60 text-sm leading-relaxed mt-3">She brings a rare blend of intelligent movement, meditative awareness and deep presence to every class. Her flows are both uplifting and calming, and she has a gift for making every student feel truly seen.</p>
-          <p class="text-navy/60 text-sm leading-relaxed mt-3">Through her hypnotherapy practice and yoga teaching, Selin's passion is inner transformation. Helping people find stillness, grounding and a genuine connection to themselves.</p>
+          <h3 class="font-display text-2xl text-navy uppercase tracking-wider">Selin</h3>
         </div>
-
       </div>
-
     </div>
   </section>
 
@@ -791,19 +729,6 @@
           </svg>
           <a href="https://maps.google.com/?q=Ballina+Scout+Hall+33+Canal+Road+Ballina+NSW+2478" target="_blank" rel="noopener" class="hover:underline leading-relaxed">Ballina Scout Hall, 33 Canal Rd, Ballina NSW 2478</a>
         </div>
-        <!-- Social links -->
-        <div class="flex items-center gap-4">
-          <a href="https://www.facebook.com/profile.php?id=61572158735596" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-navy/40 hover:text-navy transition">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/riversideyogaballina/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-navy/40 hover:text-navy transition">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-            </svg>
-          </a>
-        </div>
       </div>
 
       <p class="text-navy/40 text-xs mb-3 uppercase tracking-wide leading-relaxed">Stay up to date with class schedules, events, and more.</p>
@@ -843,23 +768,6 @@
     </address>
     <p class="text-navy/30 text-xs">© 2026 Riverside Yoga Ballina. All rights reserved.</p>
   </footer>
-
-  <!-- ── Workshop Scroll Popup ─────────────────────────────────── -->
-  <div id="workshop-popup" role="dialog" aria-modal="true" aria-labelledby="workshop-popup-heading">
-    <div id="workshop-popup-overlay" onclick="closeWorkshopPopup()"></div>
-    <div id="workshop-popup-card">
-      <button onclick="closeWorkshopPopup()"
-              class="absolute top-4 right-5 text-navy/30 hover:text-navy text-2xl leading-none font-light"
-              aria-label="Close">×</button>
-      <p class="text-terracotta text-[10px] font-bold uppercase tracking-widest mb-3">Special Event · May 9</p>
-      <h2 id="workshop-popup-heading" class="font-display text-[28px] text-navy uppercase leading-[0.95] mb-4">Never quite felt like you knew what you were doing in yoga?</h2>
-      <p class="text-navy/60 text-sm leading-relaxed mb-6">You're not alone. From the Ground Up is Riverside Yoga's beginner workshop — a friendly session where we slow it all down and actually explain the poses. May 9 · Limited spots.</p>
-      <a href="/workshop" onclick="closeWorkshopPopup()"
-         class="block w-full text-center bg-terracotta text-white font-display text-[21px] uppercase tracking-wider py-3 rounded-xl hover:opacity-90 transition">
-        More Details →
-      </a>
-    </div>
-  </div>
 
   <!-- ── Claim Free Class Modal ─────────────────────────────────── -->
   <div id="claim-modal" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
@@ -1032,7 +940,7 @@
       document.getElementById('claim-modal').classList.remove('open');
       document.body.style.overflow = '';
     }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeClaimModal(); closeRequestModal(); closeWorkshopPopup(); } });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeClaimModal(); closeRequestModal(); } });
 
     function submitRequestForm(e) {
       e.preventDefault();
@@ -1102,44 +1010,7 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // Workshop scroll popup — fires once per session at 30% scroll depth
-    function closeWorkshopPopup() {
-      document.getElementById('workshop-popup').classList.remove('open');
-      document.body.style.overflow = '';
-      sessionStorage.setItem('workshopPopupSeen', '1');
-    }
-    (function() {
-      if (sessionStorage.getItem('workshopPopupSeen')) return;
-      let fired = false;
-      window.addEventListener('scroll', function onScroll() {
-        if (fired) return;
-        const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-        if (scrolled >= 0.3) {
-          fired = true;
-          window.removeEventListener('scroll', onScroll);
-          document.getElementById('workshop-popup').classList.add('open');
-          document.body.style.overflow = 'hidden';
-        }
-      });
-    })();
   </script>
-
-  <!-- ── Sticky Social Tab ─────────────────────────────────────── -->
-  <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-2">
-    <a href="https://www.facebook.com/profile.php?id=61572158735596" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
-       class="w-11 h-11 rounded-full bg-navy text-white flex items-center justify-center shadow-lg hover:opacity-90 transition">
-      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
-      </svg>
-    </a>
-    <a href="https://www.instagram.com/riversideyogaballina/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
-       class="w-11 h-11 rounded-full bg-navy text-white flex items-center justify-center shadow-lg hover:opacity-90 transition">
-      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-      </svg>
-    </a>
-  </div>
 
 </body>
 </html>
