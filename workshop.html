@@ -3,10 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Analytics 4 with Consent Mode v2 -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-T3ZFP5VJ7V', { anonymize_ip: true });
+  try { if (localStorage.getItem('rybConsent') === 'granted') gtag('consent', 'update', { 'analytics_storage': 'granted' }); } catch (e) {}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3ZFP5VJ7V"></script>
+
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
 <meta name="msapplication-TileImage" content="/favicon.png">
-<title>Beginner Yoga Workshop – Riverside Yoga Ballina</title>
+<title>Yoga Foundations Series – Monthly Workshop at Riverside Yoga Ballina</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
@@ -92,24 +110,54 @@
   .hero-content { text-align: left; }
 
   .hero-image-wrap {
-    border-radius: 6px;
-    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    overflow: visible;
     aspect-ratio: 4/3;
-    width: 100%;
+    width: 115%;
   }
+
+  .hero-image-wrap::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 100%;
+    height: 100%;
+    background: #A8C5B5;
+    border-radius: 8px;
+    z-index: 0;
+  }
+
   .hero-image-wrap img {
+    position: relative;
+    z-index: 1;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
+    border-radius: 8px;
   }
 
   @media (max-width: 860px) {
-    .hero { padding: 60px 24px 50px; }
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-image-wrap { order: -1; }
-    .hero-content { text-align: center; }
+    .hero { padding: 50px 24px 50px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+    /* Flatten hero-content so its children + the image can be reordered together */
+    .hero-content { display: contents; }
+    .hero-content > .fade-in { text-align: center; }
+    .hero-content > .fade-in:nth-child(1) { order: 1; }  /* eyebrow */
+    .hero-content > .fade-in:nth-child(2) { order: 2; }  /* h1 */
+    .hero-content > .fade-in:nth-child(3) { order: 3; }  /* sub */
+    .hero-content > .fade-in:nth-child(4) { order: 5; }  /* event details */
+    .hero-content > .fade-in:nth-child(5) { order: 6; }  /* CTAs + scarcity */
+    .hero-image-wrap { order: 4; width: 100%; }
+    .hero-image-wrap::before { top: 12px; left: 12px; }
+    .hero-cta-group { justify-content: center; }
+    .scarcity { justify-content: center; }
+    .event-details-bar { justify-content: center; }
+    /* Hide the announcement banner on mobile */
+    .announcement { display: none; }
   }
 
   .hero-eyebrow {
@@ -134,7 +182,7 @@
   }
 
   .hero-sub {
-    font-size: 18px;
+    font-size: 21px;
     color: rgba(255,255,255,0.75);
     margin-bottom: 36px;
     font-weight: 300;
@@ -267,6 +315,64 @@
     padding-top: 6px;
   }
 
+  /* UPCOMING SESSIONS */
+  .upcoming-section {
+    background: var(--offwhite);
+    padding: 60px 24px 80px;
+    text-align: center;
+  }
+  .upcoming-inner {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .upcoming-eyebrow {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--terracotta);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .upcoming-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 28px;
+    line-height: 1.15;
+  }
+  .upcoming-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .upcoming-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border: 1px solid rgba(168,197,181,0.5);
+    border-radius: 6px;
+    padding: 14px 18px;
+  }
+  .upcoming-date {
+    color: var(--navy);
+    font-weight: 500;
+    font-size: 15px;
+  }
+  .upcoming-time {
+    color: var(--text-mid);
+    font-size: 14px;
+  }
+  @media (max-width: 600px) {
+    .upcoming-item { padding: 12px 14px; }
+    .upcoming-date { font-size: 14px; }
+    .upcoming-time { font-size: 13px; }
+  }
+
   /* ABOUT SECTION */
   .section {
     padding: 80px 24px;
@@ -298,8 +404,8 @@
   }
 
   .body-text {
-    font-size: 17px;
-    line-height: 1.8;
+    font-size: 21px;
+    line-height: 1.7;
     color: var(--text-mid);
     max-width: 640px;
   }
@@ -626,10 +732,20 @@
   /* RESPONSIVE */
   @media (max-width: 600px) {
     .photo-grid { grid-template-columns: 1fr; grid-template-rows: auto; height: auto; }
-    .teachers-grid { grid-template-columns: 1fr; }
+    .teachers-grid { grid-template-columns: 1fr; gap: 48px; }
     .pricing-cards { grid-template-columns: 1fr; }
     .event-details-bar { gap: 16px; }
     .form-tabs { flex-direction: column; }
+
+    /* Countdown: fit all four digits + dividers on one line */
+    .countdown-timer { gap: 10px; flex-wrap: nowrap; }
+    .countdown-number { font-size: 34px; }
+    .countdown-name { font-size: 11px; margin-top: 4px; letter-spacing: 0.08em; }
+    .countdown-divider { font-size: 24px; padding-top: 4px; }
+
+    /* Teachers: photo on top, bio below, full card width */
+    .teacher-card { flex-direction: column; align-items: stretch; gap: 18px; }
+    .teacher-photo-img { width: 100%; height: auto; aspect-ratio: 4/5; max-height: 420px; }
   }
 
   /* FADE IN ANIMATION */
@@ -646,13 +762,103 @@
   .fade-in:nth-child(3) { animation-delay: 0.4s; }
   .fade-in:nth-child(4) { animation-delay: 0.55s; }
   .fade-in:nth-child(5) { animation-delay: 0.65s; }
+
+  /* ── Top nav ── */
+  @media (min-width: 768px) {
+    body > nav { zoom: 1.5; }
+    #ryb-consent { zoom: 1.5; }
+  }
+  .topnav { background: var(--navy); color: #fff; position: sticky; top: 0; z-index: 40; box-shadow: 0 1px 0 rgba(0,0,0,0.05); }
+  .topnav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .topnav-brand { font-family: 'Playfair Display', serif; font-size: 20px; color: #fff; text-decoration: none; letter-spacing: 0.03em; }
+  .topnav-brand:hover { opacity: 0.9; }
+  .topnav-links { display: flex; gap: 32px; align-items: center; }
+  .topnav-link { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; padding: 4px 0; transition: color 0.2s; font-family: 'DM Sans', sans-serif; font-weight: 500; }
+  .topnav-link:hover { color: var(--sage); }
+  .topnav-link.current { border-bottom: 2px solid var(--sage); color: #fff; }
+  .topnav-toggle { display: none; background: none; border: none; color: #fff; padding: 8px; margin-right: -8px; cursor: pointer; }
+  .topnav-toggle svg { width: 24px; height: 24px; }
+  .topnav-mobile { display: none; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.1); }
+  .topnav-mobile.open { display: block; }
+  .topnav-mobile a { display: block; padding: 16px 20px; color: rgba(255,255,255,0.9); text-decoration: none; font-size: 14px; text-transform: uppercase; letter-spacing: 0.2em; font-family: 'DM Sans', sans-serif; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .topnav-mobile a:last-child { border-bottom: none; }
+  .topnav-mobile a.current { color: #fff; background: rgba(255,255,255,0.05); }
+  @media (max-width: 767px) {
+    .topnav-links { display: none; }
+    .topnav-toggle { display: block; }
+    .topnav-inner { height: 56px; padding: 0 16px; }
+  }
+
+  /* ── Cookie consent banner (compact) ── */
+  #ryb-consent {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    max-width: 440px;
+    margin: 0 auto;
+    background: var(--navy);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+    z-index: 1000;
+    display: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+  #ryb-consent.show { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  #ryb-consent p { font-size: 11px; line-height: 1.4; margin: 0; color: rgba(255,255,255,0.9); flex: 1 1 160px; }
+  #ryb-consent p strong { color: #fff; }
+  #ryb-consent .ryb-consent-actions { display: flex; gap: 6px; flex-shrink: 0; }
+  #ryb-consent button {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    transition: opacity 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+  #ryb-consent .ryb-consent-accept { background: var(--terracotta); color: #fff; }
+  #ryb-consent .ryb-consent-accept:hover { opacity: 0.9; }
+  #ryb-consent .ryb-consent-decline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.4); }
+  #ryb-consent .ryb-consent-decline:hover { background: rgba(255,255,255,0.08); }
+  @media (max-width: 480px) {
+    #ryb-consent { bottom: 6px; left: 6px; right: 6px; padding: 5px 9px; gap: 6px; }
+    #ryb-consent p { font-size: 10px; flex: 1 1 140px; }
+    #ryb-consent button { padding: 4px 8px; font-size: 8px; }
+  }
 </style>
 </head>
 <body>
 
+<!-- TOP NAV -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="/" class="topnav-brand">Riverside Yoga Ballina</a>
+    <div class="topnav-links">
+      <a href="/" data-track="click_nav_home" data-track-category="nav_click" class="topnav-link">Home</a>
+      <a href="/workshop" data-track="click_nav_foundations" data-track-category="nav_click" class="topnav-link current">Foundations</a>
+      <a href="/equipment" data-track="click_nav_equipment" data-track-category="nav_click" class="topnav-link">Equipment</a>
+    </div>
+    <button id="nav-toggle" class="topnav-toggle" aria-label="Toggle menu">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="nav-menu" class="topnav-mobile">
+    <a href="/" data-track="click_nav_home" data-track-category="nav_click">Home</a>
+    <a href="/workshop" data-track="click_nav_foundations" data-track-category="nav_click" class="current">Foundations</a>
+    <a href="/equipment" data-track="click_nav_equipment" data-track-category="nav_click">Equipment</a>
+  </div>
+</nav>
+
 <!-- ANNOUNCEMENT BAR -->
 <div class="announcement">
-  <span style="color: var(--sage); font-size: 11px; letter-spacing: 0.1em;">&#9670;</span> <span>Limited spots available</span> · $30 non-members · Members use a class pass · Riverside Yoga Ballina Beginner Workshop
+  <span style="color: var(--sage); font-size: 11px; letter-spacing: 0.1em;">&#9670;</span> <span>Limited spots available</span> · $30 non-members · Members use a class pass · Yoga Foundations Series
 </div>
 
 <!-- HERO -->
@@ -660,23 +866,23 @@
   <div class="hero-inner">
     <div class="hero-content">
       <div class="fade-in">
-        <p class="hero-eyebrow">Riverside Yoga Ballina · Beginner Workshop</p>
+        <p class="hero-eyebrow">Riverside Yoga Ballina · Yoga Foundations Series</p>
       </div>
       <div class="fade-in">
         <h1>Maybe yoga<br>could be <em>for you.</em></h1>
       </div>
       <div class="fade-in">
-        <p class="hero-sub">Never quite felt like you knew what you were doing?<br>This is the class that changes everything.</p>
+        <p class="hero-sub">Most people never get taught the fundamentals. This monthly workshop series changes that. You'll be able to stop guessing and leave with confidence you can take forward into any yoga class.</p>
       </div>
       <div class="fade-in">
         <div class="event-details-bar">
           <div class="detail-item">
             <div class="detail-icon"><i data-lucide="calendar" style="width:14px;height:14px;stroke:currentColor;"></i></div>
-            <span class="detail-label">Friday 9 May</span>
+            <span class="detail-label" id="hero-date-label">Next workshop: Sunday 5 July</span>
           </div>
           <div class="detail-item">
             <div class="detail-icon"><i data-lucide="clock" style="width:14px;height:14px;stroke:currentColor;"></i></div>
-            <span class="detail-label">9:00am – 10:30am</span>
+            <span class="detail-label">10:30am – 12:00pm</span>
           </div>
           <div class="detail-item">
             <div class="detail-icon"><i data-lucide="map-pin" style="width:14px;height:14px;stroke:currentColor;"></i></div>
@@ -690,21 +896,21 @@
       </div>
       <div class="fade-in">
         <div class="hero-cta-group">
-          <a href="https://authenticselfhypnotherapy.as.me/?appointmentType=91978516" target="_blank" class="btn-primary">Book Now</a>
-          <a href="#interest" class="btn-secondary">I'm interested, not ready yet</a>
+          <a href="https://authenticselfhypnotherapy.as.me/schedule/11c8266d/?appointmentTypeIds[]=91978516" target="_blank" data-track="click_workshop_book_now" data-track-category="conversion_intent" data-track-params='{"location":"hero","value":30,"currency":"AUD"}' class="btn-primary">Book Now</a>
+          <a href="#interest" data-track="click_workshop_interest_anchor" data-track-category="cta_click" class="btn-secondary">I'm interested, not ready yet</a>
         </div>
         <p class="scarcity"><i data-lucide="alert-circle" style="width:13px;height:13px;stroke:var(--sage);flex-shrink:0;"></i> Limited spots · $30 non-members · Members use a class pass</p>
       </div>
     </div>
     <div class="fade-in hero-image-wrap">
-      <img src="workshop-1.jpg" alt="Beginner yoga workshop at Riverside Yoga Ballina">
+      <img src="hero-workshop.jpeg" alt="Yoga Foundations Series monthly workshop at Riverside Yoga Ballina">
     </div>
   </div>
 </section>
 
 <!-- COUNTDOWN -->
 <div class="countdown-section">
-  <p class="countdown-label">Workshop begins in</p>
+  <p class="countdown-label">Next workshop begins in</p>
   <div class="countdown-timer">
     <div class="countdown-unit">
       <span class="countdown-number" id="days">--</span>
@@ -733,20 +939,20 @@
   <p class="section-eyebrow">What this is</p>
   <h2>Get the foundations <em>right</em>,<br>finally.</h2>
   <p class="body-text">
-    We're excited to be hosting the Riverside Yoga Ballina Beginner Workshop: an instructive, welcoming 90-minute session for anyone who's new to yoga, returning after a long gap, or just wants to feel more grounded in their practice.
+    Yoga Foundations is our monthly workshop series at Riverside Yoga Ballina, covering the essential building blocks of vinyasa yoga. Each 90-minute session is instructive and welcoming, for anyone who's new to yoga, returning after a long gap, or just wants to feel more grounded in their practice.
   </p>
   <br>
   <p class="body-text">
-    We'll gently guide you through the foundations of each pose so you can feel more comfortable, confident and supported. It's fun, relaxed, with plenty of breathing room and the perfect chance to meet the community.
+    It's fun, relaxed, with plenty of breathing room and the perfect chance to meet the community.
   </p>
 
   <!-- PHOTO GRID -->
   <div class="photo-grid">
     <div style="grid-row: span 2; border-radius: 6px; overflow: hidden;">
-      <img src="yoga 4.jpg" alt="Riverside Yoga Ballina class" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <img src="assist.jpeg" alt="Riverside Yoga Ballina class" style="width:100%; height:100%; object-fit:cover; display:block;">
     </div>
     <div style="border-radius: 6px; overflow: hidden;">
-      <img src="yoga 1.jpg" alt="Riverside Yoga Ballina class" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <img src="yoga 4.jpg" alt="Riverside Yoga Ballina class" style="width:100%; height:100%; object-fit:cover; display:block;">
     </div>
     <div style="border-radius: 6px; overflow: hidden;">
       <img src="yoga 2.jpg" alt="Riverside Yoga Ballina class" style="width:100%; height:100%; object-fit:cover; display:block;">
@@ -772,6 +978,15 @@
       <h3>Community from day one</h3>
       <p>Meet people who are exactly where you are. No intimidating yogis, no comparing.</p>
     </div>
+  </div>
+</section>
+
+<!-- UPCOMING SESSIONS -->
+<section class="upcoming-section">
+  <div class="upcoming-inner">
+    <p class="upcoming-eyebrow">Upcoming sessions</p>
+    <h2 class="upcoming-heading">First Sunday of every month</h2>
+    <ul class="upcoming-list" id="upcoming-list"></ul>
   </div>
 </section>
 
@@ -821,8 +1036,8 @@
       </div>
     </div>
     <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:32px;">
-      <a href="https://authenticselfhypnotherapy.as.me/?appointmentType=91978516" target="_blank" class="btn-primary" style="font-size: 16px; padding: 16px 48px;">Book Now</a>
-      <a href="#interest" class="btn-secondary" style="font-size: 16px; padding: 16px 40px; color: var(--navy); border-color: rgba(28,43,94,0.3);">I'm interested, not ready yet</a>
+      <a href="https://authenticselfhypnotherapy.as.me/schedule/11c8266d/?appointmentTypeIds[]=91978516" target="_blank" data-track="click_workshop_book_now" data-track-category="conversion_intent" data-track-params='{"location":"pricing","value":30,"currency":"AUD"}' class="btn-primary" style="font-size: 16px; padding: 16px 48px;">Book Now</a>
+      <a href="#interest" data-track="click_workshop_interest_anchor" data-track-category="cta_click" class="btn-secondary" style="font-size: 16px; padding: 16px 40px; color: var(--navy); border-color: rgba(28,43,94,0.3);">I'm interested, not ready yet</a>
     </div>
     <p style="margin-top: 14px; font-size: 15px; color: var(--text-mid); display:flex; align-items:center; justify-content:center; gap:5px;"><i data-lucide="alert-circle" style="width:13px;height:13px;stroke:var(--text-mid);"></i> Limited spots. We keep this small on purpose.</p>
   </div>
@@ -862,9 +1077,55 @@
 </footer>
 
 <script>
-  // COUNTDOWN TIMER
-  const eventDate = new Date('2026-05-09T09:00:00+10:00');
+  // YOGA FOUNDATIONS: dynamic dates (first Sunday of every month at 10am)
+  const DAY_NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
+  function firstSundayOfMonth(year, month) {
+    const d = new Date(year, month, 1, 10, 30, 0);
+    d.setDate(1 + ((7 - d.getDay()) % 7));
+    return d;
+  }
+
+  function nextFirstSunday() {
+    const now = new Date();
+    let candidate = firstSundayOfMonth(now.getFullYear(), now.getMonth());
+    if (candidate <= now) {
+      candidate = firstSundayOfMonth(now.getFullYear(), now.getMonth() + 1);
+    }
+    return candidate;
+  }
+
+  function upcomingFirstSundays(count) {
+    const start = nextFirstSunday();
+    const dates = [];
+    for (let i = 0; i < count; i++) {
+      dates.push(firstSundayOfMonth(start.getFullYear(), start.getMonth() + i));
+    }
+    return dates;
+  }
+
+  function formatLongDate(d) {
+    return `${DAY_NAMES[d.getDay()]} ${d.getDate()} ${MONTH_NAMES[d.getMonth()]}`;
+  }
+
+  // Populate hero date label
+  const eventDate = nextFirstSunday();
+  const heroDateEl = document.getElementById('hero-date-label');
+  if (heroDateEl) heroDateEl.textContent = `Next workshop: ${formatLongDate(eventDate)}`;
+
+  // Populate upcoming sessions list
+  const upcomingListEl = document.getElementById('upcoming-list');
+  if (upcomingListEl) {
+    upcomingListEl.innerHTML = upcomingFirstSundays(5).map(d => `
+      <li class="upcoming-item">
+        <span class="upcoming-date">${formatLongDate(d)}</span>
+        <span class="upcoming-time">10:30am – 12:00pm</span>
+      </li>
+    `).join('');
+  }
+
+  // COUNTDOWN TIMER
   function updateCountdown() {
     const now = new Date();
     const diff = eventDate - now;
@@ -921,25 +1182,57 @@
     });
     form.style.display = 'none';
     document.getElementById('interest-success').style.display = 'block';
+    if (typeof trackEvent === 'function') trackEvent('submit_workshop_interest', { event_category: 'conversion' });
   }
 </script>
 
-<!-- STICKY TAB -->
-<a href="https://www.riversideyogaballina.com"
-   style="position: fixed; bottom: 24px; right: 24px; z-index: 200;
-          background: var(--navy); color: white;
-          padding: 12px 20px; border-radius: 8px;
-          font-family: 'DM Sans', sans-serif; font-size: 13px;
-          font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
-          text-decoration: none; box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-          transition: background 0.2s;"
-   onmouseover="this.style.background='#2E3F7A'"
-   onmouseout="this.style.background='var(--navy)'">
-  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:6px; margin-top:-2px;">
-    <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-  </svg>
-  Visit Our Website
-</a>
+<!-- ── Cookie consent banner ─────────────────────────────────── -->
+<div id="ryb-consent" role="dialog" aria-label="Cookie consent">
+  <p>We use cookies for anonymous site analytics.</p>
+  <div class="ryb-consent-actions">
+    <button class="ryb-consent-accept" onclick="rybConsentAccept()">Accept</button>
+    <button class="ryb-consent-decline" onclick="rybConsentDecline()">Decline</button>
+  </div>
+</div>
+
+<!-- ── Analytics: consent + event tracking ───────────────────── -->
+<script>
+  (function() {
+    try {
+      var banner = document.getElementById('ryb-consent');
+      if (banner && !localStorage.getItem('rybConsent')) banner.classList.add('show');
+    } catch (e) {}
+  })();
+  function rybConsentAccept() {
+    try { localStorage.setItem('rybConsent', 'granted'); } catch (e) {}
+    if (typeof gtag === 'function') gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    var banner = document.getElementById('ryb-consent');
+    if (banner) banner.classList.remove('show');
+  }
+  function rybConsentDecline() {
+    try { localStorage.setItem('rybConsent', 'denied'); } catch (e) {}
+    var banner = document.getElementById('ryb-consent');
+    if (banner) banner.classList.remove('show');
+  }
+  function trackEvent(name, params) {
+    if (typeof gtag === 'function') gtag('event', name, params || {});
+  }
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('[data-track]');
+    if (!el) return;
+    var params = { event_category: el.dataset.trackCategory || 'cta_click' };
+    if (el.dataset.trackParams) {
+      try { Object.assign(params, JSON.parse(el.dataset.trackParams)); } catch (err) {}
+    }
+    trackEvent(el.dataset.track, params);
+  });
+  // Mobile nav toggle
+  (function() {
+    var t = document.getElementById('nav-toggle');
+    var m = document.getElementById('nav-menu');
+    if (t && m) t.addEventListener('click', function() { m.classList.toggle('open'); });
+  })();
+</script>
 
 </body>
 </html>
