@@ -6,3 +6,12 @@
 
 [build.processing.html]
   pretty_urls = true
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/reviews"
+  to = "/.netlify/functions/reviews"
+  status = 200
