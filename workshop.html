@@ -878,7 +878,7 @@
         <div class="event-details-bar">
           <div class="detail-item">
             <div class="detail-icon"><i data-lucide="calendar" style="width:14px;height:14px;stroke:currentColor;"></i></div>
-            <span class="detail-label" id="hero-date-label">Next workshop: Sunday 5 July</span>
+            <span class="detail-label" id="hero-date-label">Next workshop: Sunday 6 September</span>
           </div>
           <div class="detail-item">
             <div class="detail-icon"><i data-lucide="clock" style="width:14px;height:14px;stroke:currentColor;"></i></div>
@@ -1089,10 +1089,13 @@
 
   function nextFirstSunday() {
     const now = new Date();
+    // Next scheduled workshop — no session runs before this date (skips August 2026).
+    const floor = firstSundayOfMonth(2026, 8); // Sunday 6 September 2026
     let candidate = firstSundayOfMonth(now.getFullYear(), now.getMonth());
     if (candidate <= now) {
       candidate = firstSundayOfMonth(now.getFullYear(), now.getMonth() + 1);
     }
+    if (candidate < floor) candidate = floor;
     return candidate;
   }
 
