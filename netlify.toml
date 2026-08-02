@@ -15,3 +15,8 @@
   from = "/api/reviews"
   to = "/.netlify/functions/reviews"
   status = 200
+
+[[redirects]]
+  from = "/api/subscribe"
+  to = "/.netlify/functions/subscribe"
+  status = 200

@@ -1049,9 +1049,7 @@
     <p class="section-eyebrow" style="color: var(--terracotta);">Not ready to commit?</p>
     <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 38px); font-weight: 400; color: var(--navy); margin-bottom: 12px; line-height: 1.2;">Leave your details and<br>we'll be in touch.</h2>
     <p style="font-size: 16px; color: var(--text-mid); margin-bottom: 36px; line-height: 1.7;">No pressure. We'll send you a bit more info and answer any questions you have.</p>
-    <form id="interest-form" name="workshop-interest" data-netlify="true" netlify-honeypot="bot-field" style="text-align: left;" onsubmit="submitInterestForm(event)">
-      <input type="hidden" name="form-name" value="workshop-interest">
-      <p style="display:none;"><input name="bot-field"></p>
+    <form id="interest-form" style="text-align: left;" onsubmit="submitInterestForm(event)">
       <div class="form-group">
         <label>Your name</label>
         <input type="text" name="name" placeholder="First name">
@@ -1175,17 +1173,30 @@
   // INIT LUCIDE ICONS
   lucide.createIcons();
 
-  function submitInterestForm(e) {
+  const WORKSHOP_INTEREST_GROUP_ID = '192566063037154842';
+
+  async function submitInterestForm(e) {
     e.preventDefault();
     const form = document.getElementById('interest-form');
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form)).toString()
-    });
+    const name = form.querySelector('[name="name"]').value;
+    const email = form.querySelector('[name="email"]').value;
+
     form.style.display = 'none';
     document.getElementById('interest-success').style.display = 'block';
     if (typeof trackEvent === 'function') trackEvent('submit_workshop_interest', { event_category: 'conversion' });
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, name, groupId: WORKSHOP_INTEREST_GROUP_ID })
+      });
+      if (!res.ok) {
+        console.error('Workshop interest subscription failed', await res.json().catch(() => ({})));
+      }
+    } catch (err) {
+      console.error('Workshop interest subscription failed', err);
+    }
   }
 </script>
 
