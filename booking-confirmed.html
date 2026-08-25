@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+
+  <!-- Google Analytics 4 with Consent Mode v2 -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-T3ZFP5VJ7V', { anonymize_ip: true });
+    try { if (localStorage.getItem('rybConsent') === 'granted') gtag('consent', 'update', { 'analytics_storage': 'granted' }); } catch (e) {}
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3ZFP5VJ7V"></script>
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <title>Booking confirmed — Riverside Yoga Ballina</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1C2B5E;
+      --terracotta: #C8552A;
+      --sage: #A8C5B5;
+      --sage-light: #d2ddd7;
+      --offwhite: #F5F0E8;
+      --text-dark: #1a1a1a;
+      --text-mid: #4a4a4a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--offwhite);
+      color: var(--text-dark);
+    }
+
+    /* ── Top nav ── */
+    @media (min-width: 768px) {
+      body > nav { zoom: 1.5; }
+      #ryb-consent { zoom: 1.5; }
+    }
+    .topnav { background: var(--navy); color: #fff; position: sticky; top: 0; z-index: 40; box-shadow: 0 1px 0 rgba(0,0,0,0.05); }
+    .topnav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .topnav-brand { font-family: 'Playfair Display', serif; font-size: 20px; color: #fff; text-decoration: none; letter-spacing: 0.03em; }
+    .topnav-brand:hover { opacity: 0.9; }
+    .topnav-links { display: flex; gap: 32px; align-items: center; }
+    .topnav-link { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; padding: 4px 0; transition: color 0.2s; font-family: 'DM Sans', sans-serif; font-weight: 500; }
+    .topnav-link:hover { color: var(--sage); }
+    .topnav-toggle { display: none; background: none; border: none; color: #fff; padding: 8px; margin-right: -8px; cursor: pointer; }
+    .topnav-toggle svg { width: 24px; height: 24px; }
+    .topnav-mobile { display: none; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.1); }
+    .topnav-mobile.open { display: block; }
+    .topnav-mobile a { display: block; padding: 16px 20px; color: rgba(255,255,255,0.9); text-decoration: none; font-size: 14px; text-transform: uppercase; letter-spacing: 0.2em; font-family: 'DM Sans', sans-serif; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .topnav-mobile a:last-child { border-bottom: none; }
+    @media (max-width: 767px) {
+      .topnav-links { display: none; }
+      .topnav-toggle { display: block; }
+      .topnav-inner { height: 56px; padding: 0 16px; }
+    }
+
+    /* ── Confirmation card ── */
+    .confirm-wrap { padding: 56px 24px 24px; display: flex; justify-content: center; }
+    .card {
+      background: #fff;
+      border: 1px solid rgba(168, 197, 181, 0.4);
+      border-radius: 14px;
+      padding: 48px 36px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+    }
+    .check-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .check-circle svg { width: 32px; height: 32px; stroke: #fff; stroke-width: 3; }
+    .card h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+    .summary {
+      color: var(--text-mid);
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .summary strong { color: var(--navy); font-weight: 500; }
+    .btn {
+      display: inline-block;
+      background: var(--terracotta);
+      color: #fff;
+      padding: 14px 32px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+    .meta {
+      margin-top: 24px;
+      font-size: 12px;
+      color: rgba(28, 43, 94, 0.5);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Helpful links ── */
+    .links-section { padding: 24px 24px 64px; }
+    .links-inner { max-width: 900px; margin: 0 auto; }
+    .links-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3vw, 30px);
+      color: var(--navy);
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .links-divider { width: 40px; height: 2px; background: var(--sage); margin: 0 auto 32px; }
+    .links-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 700px) { .links-grid { grid-template-columns: 1fr; } }
+    .link-card {
+      background: #fff;
+      border: 1px solid rgba(168, 197, 181, 0.4);
+      border-radius: 12px;
+      padding: 24px;
+      text-decoration: none;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .link-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
+    .link-card h3 { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--navy); font-weight: 400; margin-bottom: 6px; }
+    .link-card p { font-size: 13px; line-height: 1.5; color: var(--text-mid); margin-bottom: 10px; }
+    .link-card span.arrow { color: var(--terracotta); font-size: 13px; font-weight: 600; }
+
+    /* ── Footer ── */
+    footer { background: var(--navy); padding: 40px 24px; text-align: center; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 24px; color: #fff; letter-spacing: 0.05em; margin-bottom: 8px; }
+    footer address { font-style: normal; color: rgba(255,255,255,0.5); font-size: 12px; line-height: 1.6; margin-bottom: 12px; }
+    footer address a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer address a:hover { text-decoration: underline; }
+    footer p.copyright { color: rgba(255,255,255,0.3); font-size: 12px; }
+
+    /* ── Cookie consent banner ── */
+    #ryb-consent {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      max-width: 440px;
+      margin: 0 auto;
+      background: var(--navy);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+      z-index: 1000;
+      display: none;
+    }
+    #ryb-consent.show { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    #ryb-consent p { font-size: 11px; line-height: 1.4; margin: 0; color: rgba(255,255,255,0.9); flex: 1 1 160px; }
+    #ryb-consent .ryb-consent-actions { display: flex; gap: 6px; flex-shrink: 0; }
+    #ryb-consent button {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      transition: opacity 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    #ryb-consent .ryb-consent-accept { background: var(--terracotta); color: #fff; }
+    #ryb-consent .ryb-consent-accept:hover { opacity: 0.9; }
+    #ryb-consent .ryb-consent-decline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.4); }
+    #ryb-consent .ryb-consent-decline:hover { background: rgba(255,255,255,0.08); }
+    @media (max-width: 480px) {
+      #ryb-consent { bottom: 6px; left: 6px; right: 6px; padding: 5px 9px; gap: 6px; }
+      #ryb-consent p { font-size: 10px; flex: 1 1 140px; }
+      #ryb-consent button { padding: 4px 8px; font-size: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="/" class="topnav-brand">Riverside Yoga Ballina</a>
+    <div class="topnav-links">
+      <a href="/" data-track="click_nav_home" data-track-category="nav_click" class="topnav-link">Home</a>
+      <a href="/workshop" data-track="click_nav_foundations" data-track-category="nav_click" class="topnav-link">Foundations</a>
+      <a href="/equipment" data-track="click_nav_equipment" data-track-category="nav_click" class="topnav-link">Equipment</a>
+    </div>
+    <button id="nav-toggle" class="topnav-toggle" aria-label="Toggle menu">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="nav-menu" class="topnav-mobile">
+    <a href="/" data-track="click_nav_home" data-track-category="nav_click">Home</a>
+    <a href="/workshop" data-track="click_nav_foundations" data-track-category="nav_click">Foundations</a>
+    <a href="/equipment" data-track="click_nav_equipment" data-track-category="nav_click">Equipment</a>
+  </div>
+</nav>
+
+<!-- CONFIRMATION CARD -->
+<div class="confirm-wrap">
+  <div class="card">
+    <div class="check-circle">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+      </svg>
+    </div>
+    <h1>You're booked in!</h1>
+    <p class="summary" id="summary">Thanks for booking with Riverside Yoga Ballina. We can't wait to see you on the mat.</p>
+    <a href="/" class="btn">Back to Home</a>
+    <p class="meta">Confirmation also sent to your email.</p>
+  </div>
+</div>
+
+<!-- HELPFUL LINKS -->
+<section class="links-section">
+  <div class="links-inner">
+    <h2>While you're here</h2>
+    <div class="links-divider"></div>
+    <div class="links-grid">
+      <a href="/#schedule" class="link-card" data-track="click_confirm_schedule" data-track-category="cta_click">
+        <h3>Class Schedule</h3>
+        <p>See what's on this week and plan your next visit to Ballina Scout Hall.</p>
+        <span class="arrow">View schedule →</span>
+      </a>
+      <a href="/workshop" class="link-card" data-track="click_confirm_foundations" data-track-category="cta_click">
+        <h3>Foundations Workshop</h3>
+        <p>New to yoga or want to build stronger basics? Join our monthly workshop.</p>
+        <span class="arrow">Learn more →</span>
+      </a>
+      <a href="/equipment" class="link-card" data-track="click_confirm_equipment" data-track-category="cta_click">
+        <h3>Equipment Guide</h3>
+        <p>Studio-tested mats, blocks, bolsters and knee pads we recommend for practice.</p>
+        <span class="arrow">See recommendations →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">Riverside Yoga Ballina</p>
+  <address>
+    Ballina Scout Hall, 33 Canal Rd, Ballina, New South Wales 2478<br>
+    <a href="tel:0473168333">0473 168 333</a> &nbsp;·&nbsp;
+    <a href="mailto:riversideyogaballina@gmail.com">riversideyogaballina@gmail.com</a>
+  </address>
+  <p class="copyright">© 2026 Riverside Yoga Ballina. All rights reserved.</p>
+</footer>
+
+<!-- ── Cookie consent banner ─────────────────────────────────── -->
+<div id="ryb-consent" role="dialog" aria-label="Cookie consent">
+  <p>We use cookies for anonymous site analytics.</p>
+  <div class="ryb-consent-actions">
+    <button class="ryb-consent-accept" onclick="rybConsentAccept()">Accept</button>
+    <button class="ryb-consent-decline" onclick="rybConsentDecline()">Decline</button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    try {
+      var banner = document.getElementById('ryb-consent');
+      if (banner && !localStorage.getItem('rybConsent')) banner.classList.add('show');
+    } catch (e) {}
+  })();
+  function rybConsentAccept() {
+    try { localStorage.setItem('rybConsent', 'granted'); } catch (e) {}
+    if (typeof gtag === 'function') gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    var banner = document.getElementById('ryb-consent');
+    if (banner) banner.classList.remove('show');
+  }
+  function rybConsentDecline() {
+    try { localStorage.setItem('rybConsent', 'denied'); } catch (e) {}
+    var banner = document.getElementById('ryb-consent');
+    if (banner) banner.classList.remove('show');
+  }
+  function trackEvent(name, params) {
+    if (typeof gtag === 'function') gtag('event', name, params || {});
+  }
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('[data-track]');
+    if (!el) return;
+    var params = { event_category: el.dataset.trackCategory || 'cta_click' };
+    if (el.dataset.trackParams) {
+      try { Object.assign(params, JSON.parse(el.dataset.trackParams)); } catch (err) {}
+    }
+    trackEvent(el.dataset.track, params);
+  });
+  // Mobile nav toggle
+  (function() {
+    var t = document.getElementById('nav-toggle');
+    var m = document.getElementById('nav-menu');
+    if (t && m) t.addEventListener('click', function() { m.classList.toggle('open'); });
+  })();
+
+  // Purchase summary + GA4 purchase event
+  (function() {
+    // Lookup tables for Acuity appointment types and catalog products
+    var APPOINTMENT_TYPES = {
+      '91978516': { name: 'Yoga Foundations Workshop', value: 30, category: 'workshop' }
+    };
+    var PRODUCTS = {
+      '2149162': { name: 'Drop In Class', value: 20, category: 'class_pass' },
+      '2155084': { name: 'Unlimited Membership', value: 34, category: 'membership' },
+      '2148972': { name: '5 Class Pass', value: 85, category: 'class_pass' }
+    };
+
+    var params = new URLSearchParams(window.location.search);
+    var appointmentType = params.get('appointmentType');
+    var productId = params.get('productId');
+
+    var item = null;
+    var itemId = null;
+    if (appointmentType && APPOINTMENT_TYPES[appointmentType]) {
+      item = APPOINTMENT_TYPES[appointmentType];
+      itemId = 'apt_' + appointmentType;
+    } else if (productId && PRODUCTS[productId]) {
+      item = PRODUCTS[productId];
+      itemId = 'prod_' + productId;
+    }
+
+    if (!item) {
+      // Unknown booking — still show a thank-you, but don't fire a fake purchase.
+      return;
+    }
+
+    // Membership purchases get a warmer, welcome-focused headline
+    var heading = document.querySelector('.card h1');
+    if (heading && item.category === 'membership') {
+      heading.textContent = 'Welcome to the studio!';
+    }
+
+    // Update summary text with the item name + value
+    var summary = document.getElementById('summary');
+    if (summary) {
+      summary.innerHTML = item.category === 'membership'
+        ? 'Your <strong>' + item.name + '</strong> is active. A confirmation has been emailed to you — see you on the mat!'
+        : 'Thanks for booking the <strong>' + item.name + '</strong>. A confirmation has been emailed to you with all the details.';
+    }
+
+    // Fire GA4 purchase event — automatically recognised as a key event in GA4.
+    // Using timestamp as transaction_id since Acuity's order id isn't surfaced in the redirect.
+    var transactionId = 'ryb_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
+    gtag('event', 'purchase', {
+      transaction_id: transactionId,
+      value: item.value,
+      currency: 'AUD',
+      items: [{
+        item_id: itemId,
+        item_name: item.name,
+        item_category: item.category,
+        price: item.value,
+        quantity: 1
+      }]
+    });
+  })();
+</script>
+</body>
+</html>
