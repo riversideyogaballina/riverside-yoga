@@ -338,7 +338,7 @@
   <!-- ── Announcement Banner ─────────────────────────────────────── -->
   <div id="banner" class="relative bg-sagetint text-navy py-2.5 px-4 flex items-center justify-center border-b border-sage/40">
     <p class="uppercase tracking-widest font-medium text-center text-[11px]">
-      Special offer for new students
+      Special offer for new local students
       <button onclick="openClaimModal()" data-track="click_first_class_free_banner" data-track-category="cta_click" class="ml-3 inline-block bg-terracotta text-white px-4 py-1 rounded-lg text-[11px] font-bold uppercase tracking-wider hover:opacity-90 transition cursor-pointer">
         First Class Free
       </button>
@@ -744,12 +744,6 @@
             <svg class="w-3.5 h-3.5 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
             </svg>
-            No catch
-          </span>
-          <span class="inline-flex items-center gap-1.5 whitespace-nowrap">
-            <svg class="w-3.5 h-3.5 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-            </svg>
             Try before you commit
           </span>
           <span class="inline-flex items-center gap-1.5 whitespace-nowrap">
@@ -757,6 +751,12 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
             </svg>
             All class types
+          </span>
+          <span class="inline-flex items-center gap-1.5 whitespace-nowrap">
+            <svg class="w-3.5 h-3.5 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+            For local students
           </span>
         </div>
         <button onclick="openClaimModal()" data-track="click_claim_free_class" data-track-category="conversion_intent" data-track-params='{"value":0,"currency":"AUD"}'
@@ -1115,7 +1115,7 @@
         <p class="text-navy text-[13px] leading-relaxed mb-2">
           Let us know your email and you'll receive next steps on how to book your first class for free.
         </p>
-        <p class="text-navy/60 text-[13px] mb-5">We can't wait to meet you!</p>
+        <p class="text-navy/60 text-[13px] mb-5">This offer is for local students only</p>
 
         <form id="claim-form" onsubmit="submitClaimForm(event)">
           <input
