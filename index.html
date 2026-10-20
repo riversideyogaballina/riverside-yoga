@@ -209,7 +209,12 @@
         height: 100vw !important;
         padding: 0 !important;
         gap: 0 !important;
+        transform: none !important;
       }
+      /* Gallery dots: bigger invisible tap area */
+      #gallery-dots { gap: 14px !important; padding: 20px 0 !important; }
+      .g-dot { position: relative; }
+      .g-dot::after { content: ''; position: absolute; inset: -18px -7px; }
       .g-img {
         width: 0 !important;
         height: 0 !important;
@@ -229,12 +234,6 @@
         transform: none !important;
         width: 100% !important;
         height: 100% !important;
-      }
-      .g-img[data-index="2"].g-active img {
-        position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) rotate(90deg) scale(1.4) !important;
       }
 
       /* Section h2s in excluded sections also land at 32px on mobile */
@@ -686,7 +685,7 @@
         </div>
         <!-- Right: image -->
         <div class="w-full aspect-[4/3] rounded-xl overflow-hidden bg-navy/10 flex items-center justify-center">
-          <img src="workshop-1.jpg" alt="Beginner Warrior Poses workshop at Riverside Yoga Ballina" loading="lazy" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-label').style.display='flex'">
+          <img src="assist-copy.jpg" alt="Yoga teacher giving a hands-on assist in side angle pose at a Yoga Foundations workshop by the river in Ballina" loading="lazy" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-label').style.display='flex'">
           <div class="placeholder-label hidden w-full h-full flex-col items-center justify-center gap-2 text-navy/30">
             <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
@@ -701,27 +700,36 @@
   <!-- ── Photo Gallery ──────────────────────────────────────────── -->
   <section class="bg-cream py-8 fade-up">
     <div style="overflow:hidden;">
-      <div id="gallery" style="display:flex; align-items:center; height:390px; gap:10px; padding:0 3%;">
+      <div id="gallery" style="display:flex; align-items:center; height:390px; gap:10px; padding:0 3%; transition:transform 0.55s ease; transform:translateX(calc(-1 * (22% + 10px)));">
         <div class="g-img" data-index="0" onclick="setGallery(0)"
              style="flex-shrink:0; width:22%; height:83%; opacity:0.6; overflow:hidden; cursor:pointer; transition:all 0.55s ease; border-radius:14px;">
-          <img src="yoga 1.jpg" alt="Student practising Vinyasa yoga outdoors near Ballina NSW" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
-        </div>
-        <div class="g-img g-active" data-index="1" onclick="setGallery(1)"
-             style="flex-shrink:0; width:50%; height:100%; opacity:1; overflow:hidden; cursor:pointer; transition:all 0.55s ease; border-radius:14px;">
           <img src="yoga 2.jpg" alt="Riverside Yoga Ballina community Vinyasa yoga class" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
         </div>
-        <div class="g-img" data-index="2" onclick="setGallery(2)"
+        <div class="g-img" data-index="1" onclick="setGallery(1)"
              style="flex-shrink:0; width:22%; height:83%; opacity:0.6; overflow:hidden; cursor:pointer; transition:all 0.55s ease; border-radius:14px;">
-          <img src="yoga 4.jpg" alt="Vinyasa yoga class at Riverside Yoga studio Ballina NSW" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+          <img src="group-shot-copy.jpg" alt="Vinyasa yoga class practising extended side angle pose with blocks at Riverside Yoga Ballina NSW" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
         </div>
-
+        <div class="g-img g-active" data-index="2" onclick="setGallery(2)"
+             style="flex-shrink:0; width:50%; height:100%; opacity:1; overflow:hidden; cursor:pointer; transition:all 0.55s ease; border-radius:14px;">
+          <img src="smiles-copy.jpg" alt="Smiling students holding their mats after a yoga class at Riverside Yoga studio Ballina" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="g-img" data-index="3" onclick="setGallery(3)"
+             style="flex-shrink:0; width:22%; height:83%; opacity:0.6; overflow:hidden; cursor:pointer; transition:all 0.55s ease; border-radius:14px;">
+          <img src="twist-copy.jpg" alt="Students in a seated twist on yoga blocks during beginner yoga class in Ballina" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="g-img" data-index="4" onclick="setGallery(4)"
+             style="flex-shrink:0; width:22%; height:83%; opacity:0.6; overflow:hidden; cursor:pointer; transition:all 0.55s ease; border-radius:14px;">
+          <img src="action-copy.jpg" alt="Student rolling out her mat before yoga class at Riverside Yoga Ballina NSW" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
       </div>
     </div>
     <!-- Carousel dots -->
     <div id="gallery-dots" class="flex justify-center gap-2 py-4">
-      <div class="g-dot w-1.5 h-1.5 rounded-full bg-gray-300 transition-all duration-300" data-index="0"></div>
-      <div class="g-dot w-6 h-1.5 rounded-full bg-terracotta transition-all duration-300" data-index="1"></div>
-      <div class="g-dot w-1.5 h-1.5 rounded-full bg-gray-300 transition-all duration-300" data-index="2"></div>
+      <button type="button" class="g-dot w-1.5 h-1.5 rounded-full bg-gray-300 transition-all duration-300" data-index="0" onclick="setGallery(0)" aria-label="Show photo 1"></button>
+      <button type="button" class="g-dot w-1.5 h-1.5 rounded-full bg-gray-300 transition-all duration-300" data-index="1" onclick="setGallery(1)" aria-label="Show photo 2"></button>
+      <button type="button" class="g-dot w-6 h-1.5 rounded-full bg-terracotta transition-all duration-300" data-index="2" onclick="setGallery(2)" aria-label="Show photo 3"></button>
+      <button type="button" class="g-dot w-1.5 h-1.5 rounded-full bg-gray-300 transition-all duration-300" data-index="3" onclick="setGallery(3)" aria-label="Show photo 4"></button>
+      <button type="button" class="g-dot w-1.5 h-1.5 rounded-full bg-gray-300 transition-all duration-300" data-index="4" onclick="setGallery(4)" aria-label="Show photo 5"></button>
     </div>
   </section>
 
@@ -1298,7 +1306,7 @@
     }
 
     // Gallery carousel
-    let galleryActive = 1;
+    let galleryActive = 2;
     function setGallery(index) {
       galleryActive = index;
       document.querySelectorAll('.g-img').forEach((el, i) => {
@@ -1314,6 +1322,9 @@
           el.style.opacity = '0.6';
         }
       });
+      // Slide the track so the active image stays centred
+      const shift = 1 - index;
+      document.getElementById('gallery').style.transform = `translateX(calc(${shift} * (22% + 10px)))`;
       document.querySelectorAll('.g-dot').forEach((dot, i) => {
         if (i === index) {
           dot.style.width = '24px';
