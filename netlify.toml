@@ -20,3 +20,16 @@
   from = "/api/subscribe"
   to = "/.netlify/functions/subscribe"
   status = 200
+
+# Foundations workshops discontinued — send old links home
+[[redirects]]
+  from = "/workshop"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/workshop.html"
+  to = "/"
+  status = 301
+  force = true
